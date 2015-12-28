@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>径向渐变</title>
+</head>
+<body>
+<canvas id="canvas" style="margin:50px auto;border:1px solid #ccc;display:block;">
+    当前浏览器不支持Canvas，请更换浏览器后再试
+</canvas>
+<script>
+    window.onload = function(){
+        var canvas = document.getElementById('canvas');
+        canvas.height = 800;
+        canvas.width = 800;
+        var content = canvas.getContext("2d");
+        var RadialGradient = content.createRadialGradient(400,400,0,400,400,400);
+        RadialGradient.addColorStop(0,'#ffffff');
+        RadialGradient.addColorStop(0.5,"blue");
+        RadialGradient.addColorStop(1,"#000000");
+        content.fillStyle = RadialGradient;
+        content.fillRect(0,0,800,800);
+    };
+
+</script>
+</body>
+</html>

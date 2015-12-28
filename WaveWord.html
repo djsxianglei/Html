@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="waveWord" style="height: 60px;font-size: 20px;color: #ECB511;text-align: center;margin-top: 50px;"></div>
+<button id="stop">停止</button><button id="begin">开始</button>
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    window.onload = function(){
+        var wordWave = new WaveWord($(".waveWord"));
+        $("#stop").click(function(){
+            wordWave.stopPlay();
+        });
+        $("#begin").click(function(){
+            wordWave.initPlay("接电话啦~接电话了~");
+        });
+    };
+    var WaveWord = function(obj){
+        this.obj = obj;
+        this.num = 0;
+        this.txt = '';
+        this.mes = new Array();
+        this.mes[0] = -1;
+        this.mes[1] = -4;
+        this.mes[2] = -7;
+        this.mes[3] = -10;
+        this.mes[4] = -7;
+        this.mes[5] = -4;
+        this.mes[6] = -1;
+        this.interval;
+    };
+    WaveWord.prototype = {
+        initPlay : function(message){
+            var _self = this;
+            for(var i = 0;i<message.length;i++){
+                _self.txt = _self.txt + "<span style='position:relative;' id='n"+i+"'>"+message.charAt(i)+"</span>";
+            }
+            _self.obj.html(_self.txt);
+            this.interval = setInterval(function(){
+                if(_self.num == -message.length){
+                    _self.num = 0;
+                }
+                _self.txt = "";
+                for(i = 0 ; i < message.length ; i++){
+                    if(i + _self.num > -1 && i + _self.num < 7){
+                        _self.txt = _self.txt+"<span style='position:relative;top:"+_self.mes[i+_self.num]+"px;'>"+message.charAt(i)+"</span>";
+                    }else{
+                        _self.txt = _self.txt+"<span>"+message.charAt(i)+"</span>";
+                    }
+                }
+                _self.obj.html(_self.txt);
+                _self.num --;
+            },50);
+        },
+        stopPlay: function(){
+            clearInterval(this.interval);
+        }
+    };
+</script>
+</body>
+</html>

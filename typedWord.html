@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="container"></div>
+<div class="aa" style="width:200px;height:200px;background: red;"></div>
+<input type="text" name="a" value='0'/>
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    var s = 'Hello World! Hello World! Hello World!';
+    var con = $('.container');
+    var index = 0;
+    var length = s.length;
+    var tId = null;
+
+    function start(){
+        con.text('');
+        tId=setInterval(function(){
+            if(index > length){
+                clearInterval(tId);
+                index = 0;
+            }else{
+                con.append(s.charAt(index));
+                index++;
+            }
+        },100);
+    }
+    start();
+    $(".aa").click(function(){
+        $("input[name='a']").val('1');
+        var a = $("input[name='a']").val();
+        if(a == 1){
+            $('.aa').attr('disabled',"true");
+        }
+
+    });
+</script>
+</body>
+</html>

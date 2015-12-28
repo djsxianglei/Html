@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>创建3d场景，3d 旋转</title>
+    <style>
+        .contain{
+            -webkit-transform-style: preserve-3d;
+            -webkit-perspective: 800px;
+            -webkit-perspective-origin: 50% 50%;
+        }
+        .box{
+            width:800px;
+            height:800px;
+            margin:100px auto;
+            background:pink;
+            -webkit-transform: rotateY(45deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="contain">
+        <div class="box"></div>
+    </div>
+</body>
+</html>

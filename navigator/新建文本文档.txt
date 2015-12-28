@@ -1,0 +1,6 @@
+http://api.map.baidu.com/marker?location=31.323631,120.718211&title=金鸡湖新罗酒店苏园厅&content=工业园区旺墩路188号近现代休闲广场&output=html
+
+
+
+
+http://developer.baidu.com/map/wiki/index.php?title=uri/api/web

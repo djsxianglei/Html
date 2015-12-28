@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=640,target-densitydpi=device-dpi,user-scalable=no" />
+    <title>H5页面设计</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="loading">
+    <div class="loading_progress">
+        <canvas id="loading_canvas"></canvas>
+        <div class="loading_icon"></div>
+    </div>
+    <div class="loading_phone"></div>
+    <div class="loading_text">
+       0%
+    </div>
+</div>
+<div class="wrapper">
+    <article class="page1">
+        <figure class="page1_btn"></figure>
+    </article>
+    <article class="page2">
+        <div class="page2_video">
+        </div>
+        <div class="page2_ganrao"></div>
+    </article>
+    <article class="unlock_page">
+        <div class="unlock_info">
+            <div class="unlock_time">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="unlock_date">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="weixin_msg"><img src="images/weixin_msg.png" width="431px" height="101px" /></div>
+            <div class="unlock_tips_wrap">
+                <div class="unlock_tips"></div>
+            </div>
+        </div>
+    </article>
+    <article class="weiChat">
+        <div class="wx_wrap">
+            <div class="wx_box">
+                <div class="wx_msg">
+                    <section class="wh_msg_1">
+                        <div class="wh_headimg"></div>
+                        <div class="wh_msg_item_1"></div>
+                    </section>
+                    <section class="wh_msg_2">
+                        <div class="wh_headimg"></div>
+                        <div class="wh_msg_item_2"></div>
+                    </section>
+                    <section class="wh_msg_3">
+                        <div class="wh_headimg"></div>
+                        <div class="wh_msg_item_3"></div>
+                    </section>
+                    <section class="user_msg_1">
+                        <div class="user_headimg"></div>
+                        <div class="user_msg_item_1"></div>
+                    </section>
+                    <section class="wh_msg_4">
+                        <div class="wh_headimg"></div>
+                        <div class="wh_msg_item_4"></div>
+                    </section>
+                    <section class="wh_msg_5">
+                        <div class="wh_headimg"></div>
+                        <div class="wh_msg_item_5"></div>
+                        <div id="WxMomentVideo" class="video_con"></div>
+                    </section>
+                    <section class="user_msg_2">
+                        <div class="user_headimg"></div>
+                        <div class="user_msg_item_2"></div>
+                    </section>
+                    <section class="wh_msg_6">
+                        <div class="wh_headimg"></div>
+                        <div class="wh_msg_item_6" id="wh_msg_item_6"></div>
+                    </section>
+                </div>
+            </div>
+            <div class="wx_input_bar"></div>
+            <div class="wx_keyboard">
+                <span class="kb_text_1"></span>
+                <span class="kb_text_2"></span>
+                <div class="btn_send"></div>
+                <input type="hidden" name="btn_sends" value="1"/>
+                <!-- <div class="btn_send_disabled"></div> -->
+            </div>
+        </div>
+    </article>
+    <article class="result_page">
+        <img src="./images/result_title.png" class="result_title" />
+    </article>
+</div>
+
+
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/jquery.transit.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <style>
+        .aa span{
+            display:inline-block;
+        }
+    </style>
+</head>
+<body>
+<div class="aa"></div>
+
+<script>
+    var unlockTime = function(obj){
+        this.obj = obj;
+        this.html = '';
+        this.leftHours = '';
+        this.rightHours = '';
+        this.leftMinutes = '';
+        this.rightMinutes = '';
+        this.leftMonth = '';
+        this.rightMonth = '';
+        this.leftDay = '';
+        this.rightDay = '';
+        this.week = '';
+    };
+    unlockTime.prototype = {
+          getTimeNumber : function(){
+              _self = this;
+              var CurTime = new Date();
+              var hours = CurTime.getHours();
+              var minutes = CurTime.getMinutes();
+              var month = CurTime.getMonth() + 1;
+              var day = CurTime.getDate();
+              _self.week = CurTime.getDay();
+              _self.leftHours = parseInt(hours/10);
+              _self.rightHours = parseInt(hours%10);
+              _self.leftMinutes = parseInt(minutes/10);
+              _self.rightMinutes = parseInt(minutes%10);
+              _self.leftMonth = parseInt(month/10);
+              _self.rightMonth = parseInt(month%10);
+              _self.leftDay = parseInt(day/10);
+              _self.rightDay = parseInt(day%10);
+              switch (_self.week){
+                  case 0 :
+                      _self.week = "星期日";
+                      break;
+                  case 1 :
+                      _self.week = "星期一";
+                      break;
+                  case 2 :
+                      _self.week = "星期二";
+                      break;
+                  case 3 :
+                      _self.week = "星期三";
+                      break;
+                  case 4 :
+                      _self.week = "星期四";
+                      break;
+                  case 5 :
+                      _self.week = "星期五";
+                      break;
+                  case 6 :
+                      _self.week = "星期六";
+                      break;
+              }
+          },
+          getTimeHtml : function(){
+              _self = this;
+              _self.getTimeNumber();
+              _self.html =  '<span>'+_self.leftHours+'</span>' +
+                      '<span>'+_self.rightHours+'</span>' +
+                      '<span>:</span>' +
+                      '<span>'+_self.leftMinutes+'</span>' +
+                      '<span>'+_self.rightMinutes+'</span>';
+              _self.obj.html(_self.html);
+              _self.obj.find("span:nth-child(3)").css("background",'red');
+          },
+          getDateHtml : function(){
+              _self = this;
+              _self.getTimeNumber();
+              console.log(_self.leftMonth);console.log(_self.rightMonth);
+              _self.html= _self.leftMonth + ''+_self.rightMonth + '月' +  _self.leftDay +''+ _self.rightDay + '日' + "  " + _self.week;
+              _self.obj.html(_self.html);
+          }
+    };
+    var a = new unlockTime($(".aa"));
+    a.getDateHtml();
+    //$(".aa").find("span:nth-child(3)").css("background",'red');
+    //console.log($(".aa").find("span").css("background",'red'));
+</script>
+</body>
+</html>

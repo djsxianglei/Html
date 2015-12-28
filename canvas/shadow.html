@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文字阴影</title>
+</head>
+<body>
+<canvas id="canvas" style="border:1px solid #ccc;margin:0 auto;display:block;"></canvas>
+<script>
+    window.onload=function(){
+        var canvas = document.getElementById('canvas');
+        canvas.height = 800;
+        canvas.width = 800;
+        var context = canvas.getContext('2d');
+        //设置阴影
+        context.shadowOffsetX = 3;
+        context.shadowOffsetY = 3;
+        context.shadowBlur = 2;
+        context.shadowColor = 'rgba(0,0,0,0.5)';
+        //绘制矩形
+        context.fillStyle = '#33ccff';
+        context.fillRect(20,20,600,60);
+        context.fill();
+        //绘制文本
+        context.font = "45px 微软雅黑";
+        context.fillStyle = '#ffffff';
+        //context.textAlign = 'center';
+        //context.textBaseline = 'middle';
+        var text1 = '未来人类';
+        context.fillText(text1,30,64);
+        var text2 = 'NTF电子竞技大赛';
+        context.strokeStyle = 'yellow';
+        context.strokeText(text2,220,64);
+
+    };
+</script>
+</body>
+</html>

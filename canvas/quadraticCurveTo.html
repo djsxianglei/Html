@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>贝塞尔曲线</title>
+</head>
+<body>
+<canvas id="canvas" style="margin:50px auto;border:1px solid #ccc;display:block;">
+    当前浏览器不支持Canvas，请更换浏览器后再试
+</canvas>
+
+
+<script>
+    canvas = document.getElementById("canvas");
+    canvas.height = 800;
+    canvas.width = 600;
+    ctx = canvas.getContext("2d")
+    ctx.lineWidth = 6;
+    ctx.strokeStyle = "#333";
+    ctx.beginPath();
+    ctx.moveTo(100, 250);
+    ctx.quadraticCurveTo(250, 100, 400, 250);
+    ctx.stroke();
+</script>
+</body>
+</html>

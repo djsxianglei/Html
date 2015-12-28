@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>音频</title>
+    <style>
+        body,html{
+            width:100%;
+            height:100%;
+        }
+        .music{
+            width:100%;
+            height:100%;
+            position: absolute;
+        }
+        #toggle{
+            width: 56px;
+            height: 55px;
+            position: fixed;
+            top: 10px;
+            background: url("mcbg.png") no-repeat;
+            overflow: hidden;
+            left: 30%;
+            z-index:9999;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="music">
+         <audio id="audio" src="music.mp3" autoplay="autoplay" loop="loop" preload="auto">你的浏览器不支持audio标签</audio>
+         <div id="toggle" onclick="toggleSound();"></div>
+    </div>
+    <script type="text/javascript" src="http://misc.360buyimg.com/lib/js/e/jquery-1.6.2.min.js?t=1509241125"></script>
+<script>
+    var audio = document.getElementById("audio");
+    function toggleSound(){
+        if(audio.paused){
+            audio.play();
+            toggle.innerHTML = "暂停";
+        }else{
+            audio.pause();
+            toggle.innerHTML = "播放";
+        }
+    }
+    document.addEventListener('touchstart', function(){
+        alert("fdsf");
+        audio.play();
+    }, false);
+    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+        alert("fdsf");
+        audio.play();
+        WeixinJSBridge.call('hideOptionMenu');
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<html>
+<head>
+    <title>图片振动</title>
+    <style>
+        .shakeImage{
+            position:relative;
+        }
+    </style>
+</head>
+<body>
+<img  src="http://img.alixixi.com/mylogo.gif" class="shakeImage"/>
+
+<button id="stop">停止</button><button id="begin">开始</button>
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<script>
+   /* $(function(){
+        var b = new rattleImage($(".shakeImage"));
+        $("#stop").click(function(){
+            b.stopPlay();
+        });
+        $("#begin").click(function(){
+            b.initPlay();
+        });
+    });*/
+   window.onload = function(){
+       var rattleImg = new rattleImage($(".shakeImage"));
+       $("#stop").click(function(){
+           rattleImg.stopPlay();
+       });
+       $("#begin").click(function(){
+           rattleImg.initPlay();
+       });
+   };
+    var rattleImage = function(obj){
+        this.obj = obj;
+        this.rector = 3;
+        this.top = obj.position().top;
+        this.left = obj.position().left;
+        this.a = 1;
+        this.interval;
+    };
+    rattleImage.prototype = {
+        initPlay : function(){
+            var _self = this;
+            this.interval = setInterval(function(){
+                if (_self.a == 1){
+                    _self.obj.css({
+                        top : _self.top + _self.rector
+                    });
+                }else if (_self.a == 2){
+                    _self.obj.css({
+                        left : _self.left + _self.rector
+                    });
+                }else if (_self.a == 3){
+                    _self.obj.css({
+                        top : _self.top - _self.rector
+                    });
+                }else{
+                    _self.obj.css({
+                        left : _self.left + _self.rector
+                    });
+                }
+                if(_self.a<4){
+                    _self.a += 1;
+                }else{
+                    _self.a = 1;
+                }
+            },50);
+        },
+        stopPlay: function(){
+            clearInterval(this.interval);
+        }
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+* { font-family: microsoft yahei, 'Raleway', sans-serif; margin: 0; padding: 0; list-style-type: none; }
+a{
+    text-decoration:none;
+}
+img{
+    margin:auto;
+}
+#main{
+    -moz-transform:scale(1);
+    -webkit-transform:scale(2);
+    -o-transform:scale(3);
+
+    -moz-transform-origin:top left;
+    -webkit-transform-origin:top left;
+    -o-transform-origin:top left;
+}
+/*头部*/
+header{
+    background:#ffffff;
+}
+header div:nth-child(3){
+    background: url("../images/header_04.png") repeat-y;
+    padding-top: 36px;
+    padding-bottom: 36px;
+    overflow: hidden;
+}
+header div:nth-child(3) p{
+    width: 75%;
+    margin: 0 auto;
+}
+header div:nth-child(3) p span{
+    display: block;
+    background: url(../images/btn_bg.png) no-repeat;
+    height: 63px;
+    width: 48%;
+    float: left;
+    line-height: 63px;
+    font-size: 30px;
+    color: #eb2d39;
+    font-weight: bold;
+    font-family: microsoft yahei, 'Raleway', sans-serif;
+}
+header div:nth-child(3) p span:last-child{
+    float: right;
+}
+header div:nth-child(3) div{
+    display:none;
+}
+header div:nth-child(3) div div:first-child{
+    width: 75%;
+    margin: 0 auto;
+    border: 1px solid #ffff00;
+    padding-bottom: 30px;
+    padding-top: 20px;
+}
+header div:nth-child(3) div div:first-child span{
+    display:block;
+    width:100%;
+    height:25px;
+    color:#ffff00;
+    font-size:25px;
+    line-height: 25px;
+    margin-top:12px;
+    text-align: left;
+    margin-left:8%;
+
+}
+header div:nth-child(3) div div:last-child{
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+header div:nth-child(3) div div:last-child span{
+    display: block;
+    background: url(../images/btn_bg.png) no-repeat;
+    height: 63px;
+    width: 48%;
+    float: left;
+    line-height: 63px;
+    font-size: 30px;
+    color: #eb2d39;
+    font-weight: bold;
+    font-family: microsoft yahei, 'Raleway', sans-serif;
+}
+header div:nth-child(3) div div:last-child span:last-child{
+    float: right;
+}
+
+/*内容区域*/
+section .banner{
+    margin:40px 0px;
+}
+section .list table{
+    width:96%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+section .list tr:first-child{
+    background: #eeeeee;
+    height: 72px;
+    margin-top:0px;
+}
+section .list tr{
+    margin-top:10px;
+    color:#777777;
+    line-height: 72px;
+    font-family: microsoft yahei, 'Raleway', sans-serif;
+}
+section .list tr th{
+    height: 72px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: normal;
+}
+section .list tr td img{
+    width: 84px;
+    height: 84px;
+    margin-top:20px;
+    -webkit-border-radius: 42px;
+    -moz-border-radius: 42px;
+    border-radius: 42px;
+}
+section .list tr td{
+    text-align: center;
+    font-size:25px;
+}
+section .list .more{
+    height:60px;
+    width:96%;
+    margin:20px auto;
+    font-size:25px;
+    color:#666666;
+    border:1px solid #666;
+    line-height: 60px;
+    -webkit-border-radius: 14px;
+    -moz-border-radius: 14px;
+    border-radius: 14px;
+}
+/*底部*/
+footer{
+    overflow: hidden;
+    margin-top: 40px;
+    background: url("../images/footer_bg.png") no-repeat;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+    width:100%;
+    height:771px;
+    
+}
+footer .rule{
+    width:94%;
+    margin:0 auto;
+    margin-top:134px;
+}
+footer .rule p{
+    font-size:18px;
+    color:#ffffff;
+    text-align: left;
+    line-height:30px;
+}
+footer .rule p:nth-child(1){
+    color:#ffff00;
+    font-size:20px;
+}
+footer .rule p:nth-child(4){
+    color:#ffff00;
+    font-size:20px;
+}
+footer .rule p span{
+    color:#ffff00;
+}
+.box{
+    width: 510px;
+    height: 250px;
+    background:#eee;
+    position: fixed;
+    z-index: 999;
+    left: 10%;
+    top: 26%;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    display:none;
+}
+.box p:first-child{
+    color:#eb2d39;
+    font-size:30px;
+    height:30px;
+    line-height:30px;
+    width:100%;
+    margin-top: 46px;
+    font-weight: bold;
+}
+.box p:nth-child(2){
+    color:#3f3f3f;
+    font-size:25px;
+    height:25px;
+    line-height: 25px;
+    width:100%;
+    margin-top: 30px;
+}
+.box p:nth-child(2) span{
+    color:#eb2d39;
+}
+.box div{
+    width: 150px;
+    height: 44px;
+    margin: 0 auto;
+    margin-top: 30px;
+    background: #eb2d39;
+    font-size: 25px;
+    line-height: 44px;
+    color: #ffffff;
+    border-radius: 8px;
+}

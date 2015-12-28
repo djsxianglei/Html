@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>加载动画</title>
+</head>
+<body>
+    <canvas id="canvas" style="border:1px solid #ccc;margin:0 auto;display:block;"></canvas>
+    <script>
+        window.onload=function(){
+            var canvas = document.getElementById('canvas');
+            canvas.height = 800;
+            canvas.width = 800;
+            var context = canvas.getContext('2d');
+            context.fillStyle = '#524B4B';
+            context.textAlign = 'center';
+            context.textBaseline = 'bottom';
+            context.font = "50px 微软雅黑";
+            context.fillText("0%",canvas.width/2,canvas.height/2+30);
+            context.beginPath();
+            context.arc(canvas.width/2,canvas.height/2,100,2*Math.PI,0,true);
+            context.lineTo(canvas.width/2+80,canvas.height/2);
+            context.arc(canvas.width/2,canvas.height/2,80,0,2*Math.PI);
+            context.closePath();
+            context.fillStyle = "#D8DDE1";
+            context.fill();
+            var rots = 1;
+            t = setInterval(function(){
+                if(rots>100){
+                    clearInterval(t);
+                }else{
+                    context.clearRect(0,0,canvas.width,canvas.height);
+                    context.beginPath();
+                    context.arc(canvas.width/2,canvas.height/2,100,2*Math.PI,0,true);
+                    context.lineTo(canvas.width/2+80,canvas.height/2);
+                    context.arc(canvas.width/2,canvas.height/2,80,0,2*Math.PI);
+                    context.closePath();
+                    context.fillStyle = "#D8DDE1";
+                    context.fill();
+                    var rot = rots*2*Math.PI/100;
+                    context.beginPath();
+                    context.arc(canvas.width/2,canvas.height/2,101,rot,0,true);
+                    context.lineTo(canvas.width/2+79,canvas.height/2);
+                    context.arc(canvas.width/2,canvas.height/2,79,0,rot);
+                    context.closePath();
+                    context.fillStyle = "#497DA4";
+                    context.fill();
+                    var process = rots+'%';
+                    context.fillStyle = '#524B4B';
+                    context.textAlign = 'center';
+                    context.textBaseline = 'bottom';
+                    context.font = "50px 微软雅黑";
+                    context.fillText(process,canvas.width/2,canvas.height/2+30);
+                    rots++;
+                }
+            },50);
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>加载动画</title>
+</head>
+<body>
+    <canvas id="canvas" style="border:1px solid #ccc;margin:0 auto;display:block;"></canvas>
+    <script>
+        var canvasWidth = 800;
+        var canvasHeight = 800;
+        var R = 100;
+        var r = 80;
+        var rot = 0;
+        var percentage = 0;
+        window.onload=function(){
+            var canvas = document.getElementById('canvas');
+            canvas.height = canvasWidth;
+            canvas.width = canvasHeight;
+            var context = canvas.getContext('2d');
+            render(context);
+            t = setInterval(function(){
+                if(percentage>100){
+                    clearInterval(t);
+                }else{
+                    render(context);
+                    update();
+                }
+            },50);
+            function render(cxt){
+                cxt.clearRect(0,0,cxt.canvas.width,cxt.canvas.height);
+                cxt.beginPath();
+                cxt.arc(canvasWidth/2,canvasHeight/2,R,rot,0,true);
+                cxt.lineTo(canvasWidth/2+r,canvasHeight/2);
+                cxt.arc(canvasWidth/2,canvasHeight/2,r,0,rot);
+                cxt.closePath();
+                cxt.fillStyle = "#497DA4";
+                cxt.fill();
+                var percent = percentage+'%';
+                context.fillStyle = '#524B4B';
+                context.textAlign = 'center';
+                context.textBaseline = 'bottom';
+                context.font = "50px 微软雅黑";
+                context.fillText(percent,canvasWidth/2,canvasHeight/2+30);
+            }
+            function update(){
+                percentage += 1;
+                rot = percentage*2*Math.PI/100;
+            }
+        };
+    </script>
+</body>
+</html>
