@@ -433,51 +433,71 @@ img {
     overflow: hidden;
     display:none;
 }
-.panelA{
-    width: 640px;
-    height: 334px;
-    -webkit-perspective: 600px;
-    -webkit-perspective-origin: 50% 50%;
-    -webkit-transform-style: preserve-3d;
-    margin-top: 38%;
-    float:left;
+.page5_title{
+    width:100%;
+    height:79px;
+    background:url("../images/page5_title.png") no-repeat;
+    background-size:100% 100%;
+    position: absolute;
+    top: -79px;
 }
-.img1{
-    width:640px;
-    height:378px;
-    background:url("../images/DSC_0081-1.jpg") no-repeat;
+.page5_footer{
+    width:100%;
+    height:65px;
+    background:url("../images/page5_footer.png") no-repeat;
+    background-size:100% 100%;
+    position: absolute;
+    bottom:-65px;
+}
+.tenWord{
+    width: 132px;
+    height: 32px;
+    background: url("../images/tenWord.png") no-repeat;
     background-size: 100% 100%;
-    opacity: 0;
-    -webkit-transition: -webkit-transform 0.8s ease-in-out;
-    -webkit-transform-origin:left;
-}
-.panelB{
-    width: 640px;
-    height: 385px;
-    -webkit-perspective: 600px;
-    -webkit-perspective-origin: 50% 50%;
-    -webkit-transform-style: preserve-3d;
-    float:right;
-}
-.img2{
-    width:640px;
-    height:385px;
-    background:url("../images/DSC_0433-1.jpg") no-repeat;
-    background-size: 100% 100%;
-    -webkit-transition: -webkit-transform 1s ease-in-out;
-    -webkit-transform-origin:right;
+    position: absolute;
+    left: 50%;
+    margin-left: -66px;
+    margin-top: 24px;
     opacity:0;
 }
+.panelA{
+    width: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 14%;
+    left: 50%;
+    margin-left: -45%;
+    opacity: 0;
+    border: 4px solid #023c91;
+    border-radius: 10px;
+}
+.panelA img{
+    width:100%;
+}
+.panelB{
+    width: 90%;
+    overflow: hidden;
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    margin-left: -45%;
+    opacity: 0;
+    border: 4px solid #023c91;
+    border-radius: 10px;
+}
+.panelB img{
+    width:100%;
+}
+
+
 .panelC{
-    width:640px;
-    height:341px;
-    -webkit-perspective: 600px;
-    -webkit-perspective-origin: 50% 50%;
-    -webkit-transform-style: preserve-3d;
-    position:absolute;
-    top: 21%;
-    left: 10px;
-    z-index: 2;
+    width: 90%;
+    overflow: hidden;
+    position: absolute;
+    top: 14%;
+    left: 50%;
+    margin-left: -45%;
+    opacity: 0;
 }
 #fragment_title{
     position: relative;
@@ -485,29 +505,22 @@ img {
     height:341px;
     background-size:100% 100%;
     background-repeat: no-repeat;
-    -webkit-transform-origin:left;
-    -webkit-transform: rotateY(20deg) translateX(20px);
-    z-index:2;
 }
 .panelD{
-    width: 640px;
-    height: 358px;
-    -webkit-perspective: 600px;
-    -webkit-perspective-origin: 50% 50%;
-    -webkit-transform-style: preserve-3d;
+    width: 90%;
+    overflow: hidden;
     position: absolute;
-    top: 50%;
-    right: 0px;
+    top: 52%;
+    left: 50%;
+    margin-left: -45%;
+    opacity: 0;
+    border: 4px solid #023c91;
+    border-radius: 10px;
 }
 .img4{
-    width:640px;
-    height:385px;
-    background:url("../images/DSC03782-1.jpg") no-repeat;
-    background-size: 100% 100%;
-    -webkit-transition: -webkit-transform 1s ease-in-out;
-    -webkit-transform-origin:right;
-    opacity:0;
+    width:100%;
 }
+
 /*第六页*/
 
 .page6{
@@ -524,43 +537,29 @@ img {
     width:640px;
     height:423px;
     position:absolute;
-    top:36%;
+    top:12%;
     left:50%;
     margin-left:-320px;
     background:url("../images/ig.png") no-repeat;
     background-size:100% 100%;
-    display:none;
     opacity: 0;
 }
 .snake{
     width:640px;
     height:312px;
     position:absolute;
-    top:52.6%;
+    top:33%;
     left:50%;
     margin-left:-320px;
     background:url("../images/snake.png") no-repeat;
     background-size:100% 100%;
-    display:none;
-    opacity: 0;
-}
-.puppet{
-    width:640px;
-    height:163px;
-    position:absolute;
-    top:72.8%;
-    left:50%;
-    margin-left:-320px;
-    background:url("../images/puppet.png") no-repeat;
-    background-size:100% 100%;
-    display:none;
     opacity: 0;
 }
 .glory{
     width:320px;
     height:72px;
     position:absolute;
-    top:80%;
+    top:72%;
     left:-320px;
     background:url("../images/word.png") no-repeat;
     background-position: 0% 0%;
@@ -570,7 +569,7 @@ img {
     width:320px;
     height:72px;
     position:absolute;
-    top:80%;
+    top:72%;
     right:-320px;
     background:url("../images/word.png") no-repeat;
     background-position: 100% 0%;

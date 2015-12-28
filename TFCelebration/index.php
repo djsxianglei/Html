@@ -29,6 +29,8 @@
         <img src="images/input_bg.jpg" />
         <img src="images/ig.png"/>
         <img src="images/snake.png"/>
+        <img src="images/page5_title.png"/>
+        <img src="images/page5_footer.png"/>
     </div>
     <article class="page1">
         <canvas id="loading_canvas"></canvas>
@@ -37,22 +39,26 @@
     <div class="page6">
         <div class="ig"></div>
         <div class="snake"></div>
-        <div class="puppet"></div>
         <div class="glory"></div>
         <div class="hand-in"></div>
     </div>
     <div class="page5">
+        <div class="page5_title">
+            <div class="tenWord"></div>
+        </div>
+        <div class="page5_footer"></div>
         <div class="panelA">
-            <div class="img1"></div>
+            <img src="images/DSC_0081-1.jpg" />
         </div>
         <div class="panelB">
-            <div class="img2"></div>
+            <img src="images/DSC_0433-1.jpg" />
         </div>
         <div class="panelC">
             <div id="fragment_title"></div>
+            <!--<img src="images/DSC03470-1.jpg" />-->
         </div>
         <div class="panelD">
-            <div class="img4"></div>
+            <div class="img4"><img src="images/DSC03782-1.jpg" /></div>
         </div>
     </div>
     <div class="page2">

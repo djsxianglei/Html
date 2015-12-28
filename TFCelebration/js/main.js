@@ -40,60 +40,39 @@ window.onload = function(){
             if(mx>150){
                 page1.hide();
                 $(".page6").show();
-                var snakeHeight = $(".snake").height();
-                var ig = $(".ig").height();
-                var inY1  = snakeHeight/2;
-                var inY2 = snakeHeight + ig/2;
-                $(".puppet").show();
-                $(".puppet").transition({
+                $(".ig").transition({
                     opacity : 1
-                },'1000','linear',function(){
-                    $(".puppet").transition({
-                        transform: 'translateY(-'+inY1+'px)'
-                    },'1000','linear',function(){
-                        $(".snake").show();
-                        $(".snake").transition({
-                            opacity : 1
-                        },"1000",'linear',function(){});
-                        $(".puppet").transition({
-                            transform: 'translateY(-'+inY2+'px)'
-                        },'1500','linear',function(){
-                            $(".ig").show();
-                            $(".ig").transition({
-                                opacity : 1
-                            },"1000",'linear',function(){});
-                            var inY3 = $(".puppet").offset().top + ig/2;
-                            console.log($(".puppet").offset().top);
-                            console.log($(".ig").offset().top);
-                            $(".puppet").transition({
-                                transform: 'translateY(-'+2000+'px)'
-                            },"1500",'linear',function(){
-                                $(".glory").show();
-                                $(".hand-in").show();
-                                $(".glory").transition({
-                                    transform: 'translateX('+320+'px)'
-                                },'1000','linear',function(){});
-                                $(".hand-in").transition({
-                                    transform: 'translateX(-'+320+'px)'
-                                },'1000','linear',function(){
-                                    setTimeout(function(){
-                                        $(".page6").hide();
-                                        $(".page5").show();
-                                         $(".img1").transition({
-                                         opacity : 1,
-                                         height : 334 + 'px',
-                                         width : 640 + 'px'
-                                         },'2000','ease-in-out', function () {
-                                         $(".img1").css({
-                                         "-webkit-transform": "translateX(50px) translateZ(60px) rotateY(20deg)"
-                                         });
-                                         setTimeout(function(){
-                                            $(".img2").transition({
-                                                opacity : 1
-                                            },'50','linear',function(){
-                                                $(".img2").css({
-                                                    "-webkit-transform": "translateX(-20px) rotateY(-20deg)"
-                                                });
+                },'1000','ease-in',function(){
+                    $(".snake").transition({
+                        opacity : 1
+                    },'1000','ease-in',function(){
+                        $(".glory").show();
+                        $(".hand-in").show();
+                        $(".glory").transition({
+                            transform: 'translateX('+320+'px)'
+                        },'1000','linear',function(){});
+                        $(".hand-in").transition({
+                            transform: 'translateX(-'+320+'px)'
+                        },'1000','linear',function(){
+                            setTimeout(function(){
+                                $(".page6").hide();
+                                $(".page5").show();
+                                $(".page5_footer").transition({
+                                    transform: 'translateY(-'+65+'px)'
+                                },'500','linear',function(){});
+                                $(".page5_title").transition({
+                                    transform: 'translateY('+79+'px)'
+                                },'500','linear',function(){
+                                    $(".tenWord").transition({
+                                        opacity:1
+                                    },'400','ease-in',function(){
+                                        $(".panelA").transition({
+                                            opacity:1,
+                                            width : "90%"
+                                        },'1000','linear',function(){
+                                            $(".panelB").transition({
+                                                opacity:1
+                                            },'1000','linear',function(){
                                                 setTimeout(function(){
                                                     $(".panelA").transition({
                                                         opacity : 0,
@@ -103,41 +82,46 @@ window.onload = function(){
                                                         opacity : 0,
                                                         scale : 0.3
                                                     },'700','linear',function(){
-                                                        $("#fragment_title").fragmentFly({
-                                                            image_url:"./images/DSC03470-1.jpg",    //背景图路径，当前目录为元素所在的html目录
-                                                            cut_dir:"x",    //可选"x"或"y"，默认均分x方向
-                                                            ave_part:12,    //均分cut_dir方向，默认切割成12份
-                                                            rm_part:[2,3]   //非cut_dir方向上随机切割，默认最小2份，最多3份
-                                                        },{
-                                                            anime_dir:"down",   //切割子元素动画运行方向，可选"up","down","left","right"，默认为down
-                                                            path:[500,800],     //切割子元素动画路长，默认路径最短500px，最长800px
-                                                            time:[500,1500],   //切割子元素动画时长，默认时长最短1000ms，最长1300ms
-                                                            opacity:[0,1]       //切割子元素透明度变化，默认初始为1，结束为1(即无渐变)
-                                                        });
-                                                        setTimeout(function(){
-                                                            $(".img4").transition({
-                                                                opacity : 1
-                                                            },'50','linear',function() {
-                                                                $(".img4").css({
-                                                                    "-webkit-transform": "translateX(-10px) rotateY(-20deg)"
-                                                                });
-                                                                setTimeout(function(){
-                                                                    $(".page5").hide();
-                                                                    $(".page2").show();
-                                                                    var wordWave = new WaveWord($(".waveWord"));
-                                                                    wordWave.initPlay(">点击解锁<");
-                                                                },2400);
+                                                        $(".panelC").transition({
+                                                            opacity : 1
+                                                        },'1000','linear',function(){
+                                                            $("#fragment_title").fragmentFly({
+                                                                image_url:"./images/DSC03470-1.jpg",    //背景图路径，当前目录为元素所在的html目录
+                                                                cut_dir:"x",    //可选"x"或"y"，默认均分x方向
+                                                                ave_part:12,    //均分cut_dir方向，默认切割成12份
+                                                                rm_part:[2,3]   //非cut_dir方向上随机切割，默认最小2份，最多3份
+                                                            },{
+                                                                anime_dir:"down",   //切割子元素动画运行方向，可选"up","down","left","right"，默认为down
+                                                                path:[500,800],     //切割子元素动画路长，默认路径最短500px，最长800px
+                                                                time:[500,1500],   //切割子元素动画时长，默认时长最短1000ms，最长1300ms
+                                                                opacity:[0,1]       //切割子元素透明度变化，默认初始为1，结束为1(即无渐变)
                                                             });
-                                                        },1500);
+                                                            setTimeout(function(){
+                                                                $(".panelC").css({
+                                                                    "border": "4px solid #023c91",
+                                                                    "border-radius":"10px"
+                                                                });
+                                                                $(".panelD").transition({
+                                                                    opacity : 1
+                                                                },'1000','linear',function(){
+                                                                    setTimeout(function(){
+                                                                        $(".page5").hide();
+                                                                        $(".page2").show();
+                                                                        var wordWave = new WaveWord($(".waveWord"));
+                                                                        wordWave.initPlay(">点击解锁<");
+                                                                    },800);
+                                                                });
+                                                            },1500);
+                                                        });
                                                     });
-                                                },2400);
+                                                },800);
                                             });
-                                         },1000);
-                                         });
-                                    },1000);
+                                        });
+                                    });
                                 });
-                            });
+                            },1000);
                         });
+
                     });
                 });
             }else{
