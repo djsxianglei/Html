@@ -121,7 +121,6 @@ window.onload = function(){
                                                                 $(".img4").css({
                                                                     "-webkit-transform": "translateX(-10px) rotateY(-20deg)"
                                                                 });
-                                                                return;
                                                                 setTimeout(function(){
                                                                     $(".page5").hide();
                                                                     $(".page2").show();

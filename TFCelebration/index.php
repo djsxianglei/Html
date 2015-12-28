@@ -16,20 +16,20 @@
         </audio>
         <div id="toggle" onclick="toggleSound();"></div>
     </div>
-	<div class="preload-img">
-            <img src="images/doorBottom.png" />
-            <img src="images/doorTop.png" />
-            <img src="images/page2_bg.jpg" />
-            <img src="images/page3_bg.jpg" />
-            <img src="images/page4_bg.jpg" />
-            <img src="images/DSC03470-1.jpg"/>
-            <img src="images/DSC03782-1.jpg" />
-            <img src="images/DSC_0433-1.jpg" />
-            <img src="images/DSC_0081-1.jpg" />
-            <img src="images/input_bg.jpg" />
-            <img src="images/ig.png"/>
-            <img src="images/snake.png"/>
-        </div>
+    <div class="preload-img">
+        <img src="images/doorBottom.png" />
+        <img src="images/doorTop.png" />
+        <img src="images/page2_bg.jpg" />
+        <img src="images/page3_bg.jpg" />
+        <img src="images/page4_bg.jpg" />
+        <img src="images/DSC03470-1.jpg"/>
+        <img src="images/DSC03782-1.jpg" />
+        <img src="images/DSC_0433-1.jpg" />
+        <img src="images/DSC_0081-1.jpg" />
+        <img src="images/input_bg.jpg" />
+        <img src="images/ig.png"/>
+        <img src="images/snake.png"/>
+    </div>
     <article class="page1">
         <canvas id="loading_canvas"></canvas>
         <div class="swipe"></div>
@@ -138,6 +138,38 @@
             audio.play()
         })
     },false);
+</script>
+<script>
+    $(function(){
+        $("form").submit(function(e){
+            var companyName = $("input[name='companyName']").val();
+            var joinNum = $("input[name='joinNum']").val();
+            var linkMan = $("input[name='linkMan']").val();
+            var email = $("input[name='email']").val();
+            var phone = $("input[name='phone']").val();
+            if(companyName == ''){
+                alert("公司名称不能为空！");
+                return false;
+            }
+            if(!/^-?[1-9]\d*$/.test(joinNum)){
+                alert("参加人数不能为空！或参加人数必须为整数！");
+                return false;
+            }
+            if(linkMan == ''){
+                alert("联系人不能为空！");
+                return false;
+            }
+            if(!/[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/.test(email)){
+                alert("电子邮箱不能为空！或电子邮箱不正确！");
+                return false;
+            }
+            if(!/(13\d|14[57]|15[^4,\D]|17[678]|18\d)\d{8}|170[059]\d{7}/.test(phone)){
+                alert("电话号码不能为空！或者电话格式不正确");
+                return false;
+            }
+            return true;
+        });
+    });
 </script>
 </body>
 </html>

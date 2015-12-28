@@ -5,19 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=1.0, user-scalable=no">
     <title>input 新类型</title>
     <style>
-        form,html,body{
+        .page4{
             width:100%;
             height:100%;
+            position: absolute;
+            background:url("../images/page4_bg.jpg") no-repeat;
+            -webkit-background-size: 100% 100%;
+            background-size: 100% 100%;
+            display: none;
         }
-        form p input{
+        .page4 #user{
+            width: 86%;
+            height: 54%;
+            position: absolute;
+            left: 50%;
+            margin-left: -43%;
+            top: 23.5%;
+        }
+        .page4 #user p{
+            width: 100%;
+            height: 17%;
+            margin-top: 32px;
+        }
+        .page4 #user p:first-child{
+            margin-top:6px;
+        }
+        .page4 #user p input{
             width:100%;
-            height: 100px;
-            font-size:30px;
+            height:100%;
+            border:0px;
+            border: 0px;
+            font-size: 35px;
+            text-indent: 50px;
+            color:#ccc;
+            border:1px solid #ccc;
+        }
+        .submit{
+            border: 0px;
+            width: 100%;
+            height: 16%;
+            margin-top: 7%;
         }
     </style>
 </head>
 <body>
-    <form>
+    <!--<form>
         <p><input type="email" name="email" placeholder="请输入邮箱地址：" required></p>
         <p><input type="url" name="url" placeholder="请输入网站地址：" /></p>
         <p><input type="number" name="number" placeholder="请输入大于1小于20的数" min="1" max="20" step="1"/>  </p>
@@ -26,6 +58,48 @@
         <p><input type="color" name="color" placeholder="请选择一种颜色"/> </p>
         <p><input type="submit" value="提交"/> </p>
         <button class="submit">sdfaf</button>
-    </form>
+    </form>-->
+    <div class="page4" style="display:block;">
+        <form id="user" action="up.php" method="post">
+            <p><input type="text" placeholder="公司名称" name="companyName"  required/> </p>
+            <p><input type="number" placeholder="参加人数" name="joinNum" required/></p>
+            <p><input type="text" placeholder="联系人" name="linkMan" required/></p>
+            <p><input type="email" placeholder="电子邮箱" name="email"  required/></p>
+            <p><input type="number" placeholder="手机" name="phone"  required/></p>
+            <button class="submit">提交</button>
+        </form>
+    </div>
+    <script type="text/javascript" src="http://misc.360buyimg.com/lib/js/e/jquery-1.6.2.min.js?t=1509241125"></script>
+    <script>
+        $(function(){
+            $("form").submit(function(e){
+                var companyName = $("input[name='companyName']").val();
+                var joinNum = $("input[name='joinNum']").val();
+                var linkMan = $("input[name='linkMan']").val();
+                var email = $("input[name='email']").val();
+                var phone = $("input[name='phone']").val();
+                if(companyName == ''){
+                    alert("公司名称不能为空！");
+                    return false;
+                }
+                if(!/^-?[1-9]\d*$/.test(joinNum)){
+                    alert("参加人数不能为空！或参加人数必须为整数！");
+                    return false;
+                }
+                if(linkMan == ''){
+                    alert("联系人不能为空！");
+                    return false;
+                }
+                if(!/[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/.test(email)){
+                    alert("电子邮箱不能为空！或电子邮箱不正确！");
+                    return false;
+                }
+                if(!/(13\d|14[57]|15[^4,\D]|17[678]|18\d)\d{8}|170[059]\d{7}/.test(phone)){
+                    alert("电话号码不能为空！或者电话格式不正确");
+                    return false;
+                }
+            });
+        });
+    </script>
 </body>
 </html>
