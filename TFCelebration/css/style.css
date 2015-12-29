@@ -520,6 +520,36 @@ img {
 .img4{
     width:100%;
 }
+.panelE{
+    width: 90%;
+    overflow: hidden;
+    position: absolute;
+    top: 12%;
+    left: 50%;
+    margin-left: -45%;
+    opacity: 0;
+    display:none;
+}
+.panelE img{
+    width:90%;
+    border: 4px solid #023c91;
+    border-radius: 10px;
+}
+.panelF{
+    width: 90%;
+    overflow: hidden;
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    margin-left: -45%;
+    opacity: 0;
+    display:none;
+}
+.panelF img{
+    width:90%;
+    border: 4px solid #023c91;
+    border-radius: 10px;
+}
 
 /*第六页*/
 

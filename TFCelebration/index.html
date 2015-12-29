@@ -10,12 +10,13 @@
 <div class="wrapper">
     <div class="music">
         <audio id="audio" autoplay="autoplay" loop="loop" preload="auto">
-            <source src="images/music.ogg" type="audio/ogg">
             <source src="images/music.mp3" type="audio/mpeg">
+            <source src="images/music.ogg" type="audio/ogg">
             你的浏览器不支持audio标签
         </audio>
         <audio id="sound" preload="auto">
             <source src="images/sound.mp3" type="audio/mpeg">
+            <source src="images/sound.ogg" type="audio/ogg">
             你的浏览器不支持audio标签
         </audio>
         <div id="toggle" onclick="toggleSound();"></div>
@@ -63,6 +64,12 @@
         </div>
         <div class="panelD">
             <div class="img4"><img src="images/DSC03782-1.jpg" /></div>
+        </div>
+        <div class="panelE">
+            <img src="images/DSC03394.jpg" />
+        </div>
+        <div class="panelF">
+            <img src="images/DSC_0092.jpg" />
         </div>
     </div>
     <div class="page2">
@@ -125,6 +132,7 @@
 </script>
 <script>
     var audio = document.getElementById("audio");
+    var sound = document.getElementById('sound');
     $("#toggle").addClass("toggle_pic");
     if(audio.paused){
         audio.play();

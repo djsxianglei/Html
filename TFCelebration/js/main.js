@@ -6,11 +6,6 @@ window.onload = function(){
     var HEIGHT = $("body").height();
     /*page1加载和拖动*/
     loading().then(function(){
-        if(audio.paused){
-            audio.play();
-            $("#toggle").addClass("toggle_pic");
-            $("#toggle").css('background-image','url(images/openMusic.png)');
-        }
         $(".swipe").show();
         $("#loading_canvas").hide();
         $(".arrowRight").show();
@@ -105,10 +100,33 @@ window.onload = function(){
                                                                     opacity : 1
                                                                 },'1000','linear',function(){
                                                                     setTimeout(function(){
-                                                                        $(".page5").hide();
-                                                                        $(".page2").show();
-                                                                        var wordWave = new WaveWord($(".waveWord"));
-                                                                        wordWave.initPlay(">点击解锁<");
+                                                                        $(".panelC").transition({
+                                                                            opacity : 0,
+                                                                            scale : 0.3
+                                                                        },'600','linear',function(){});
+                                                                        $(".panelD").transition({
+                                                                            opacity : 0,
+                                                                            scale : 0.3
+                                                                        },'700','linear',function(){
+                                                                            $(".panelE").show();
+                                                                            $(".panelE").transition({
+                                                                                opacity:1
+                                                                            },'1000','linear',function(){
+                                                                                $(".panelF").show();
+                                                                                $(".panelF").transition({
+                                                                                    opacity:1
+                                                                                },'1000','linear',function(){
+                                                                                    setTimeout(function(){
+                                                                                        $(".page5").hide();
+                                                                                        $(".page2").show();
+                                                                                        var wordWave = new WaveWord($(".waveWord"));
+                                                                                        wordWave.initPlay(">点击解锁<");
+                                                                                    },2000);
+                                                                                })
+                                                                            });
+
+
+                                                                        });
                                                                     },800);
                                                                 });
                                                             },1500);
@@ -130,6 +148,7 @@ window.onload = function(){
         });
     });
     $(".page2-btn").click(function(){
+        sound.play();
         var wordWave = new WaveWord($(".waveWord"));
         wordWave.stopPlay();
         $(".waveWord").hide();
@@ -143,63 +162,69 @@ window.onload = function(){
         $(".doorBottom").transition({
             bottom : '-'+ inX + 'px'
         },'1500','linear',function(){
-            $(".page2-btn").hide();
-            typedWord($(".wordType p:nth-child(1)"),'尊敬的先生/女士：').then(function(){
-                return typedWord($(".wordType p:nth-child(2)"),'您好！');
-            }).then(function(){
-                return typedWord($(".wordType p:nth-child(3)"),'在Terrans  Force（未来人类）发展的十年时光里，非常荣幸的得到您的信任与合作；希望在未来的十年发展规划里，能够继续得到您的认可与支持！现诚挚邀请您百忙之中参加Terrans  Force（未来人类）举办的十周年年会庆典活动！');
-            }).then(function(){
-                var typedWordHeight = $(".wordType").height();
-                var typedWordTop = $(".wordType").offset().top;
-                var indH = typedWordHeight + typedWordTop + 30 + 'px';
-                $(".activitySite").css("top",indH);
-                var a = $(".activitySite").height();
-                var b = $(".activitySite").width();
-                console.log(a);console.log(b);
-                $(".activitySite").transition({
-                    opacity : 1
-                },'2000','linear',function(){
-                    /*page2加载和拖动*/
-                    var page2 = $(".page2");
-                    var mx = '';
-                    page2.bind("touchstart",function(){
-                        event.preventDefault();
-                        var touch1 = event.touches[0];
-                        startX = touch1.pageX;
+            if(audio.paused){
+                audio.play();
+            }
+            setTimeout(function(){
+                $(".page2-btn").hide();
+                typedWord($(".wordType p:nth-child(1)"),'尊敬的先生/女士：').then(function(){
+                    return typedWord($(".wordType p:nth-child(2)"),'您好！');
+                }).then(function(){
+                    return typedWord($(".wordType p:nth-child(3)"),'在Terrans  Force（未来人类）发展的十年时光里，非常荣幸的得到您的信任与合作；希望在未来的十年发展规划里，能够继续得到您的认可与支持！现诚挚邀请您百忙之中参加Terrans  Force（未来人类）举办的十周年年会庆典活动！');
+                }).then(function(){
+                    var typedWordHeight = $(".wordType").height();
+                    var typedWordTop = $(".wordType").offset().top;
+                    var indH = typedWordHeight + typedWordTop + 30 + 'px';
+                    $(".activitySite").css("top",indH);
+                    var a = $(".activitySite").height();
+                    var b = $(".activitySite").width();
+                    console.log(a);console.log(b);
+                    $(".activitySite").transition({
+                        opacity : 1
+                    },'2000','linear',function(){
+                        /*page2加载和拖动*/
+                        var page2 = $(".page2");
+                        var mx = '';
+                        page2.bind("touchstart",function(){
+                            event.preventDefault();
+                            var touch1 = event.touches[0];
+                            startX = touch1.pageX;
 
 
-                    });
-                    page2.bind("touchmove",function(){
-                        event.preventDefault();
-                        var touch1 = event.touches[0];
-                        moveX = touch1.pageX;
-                        mx = moveX-startX;
-                        page2.css({"left":mx+"px"});
+                        });
+                        page2.bind("touchmove",function(){
+                            event.preventDefault();
+                            var touch1 = event.touches[0];
+                            moveX = touch1.pageX;
+                            mx = moveX-startX;
+                            page2.css({"left":mx+"px"});
 
-                    });
-                    page2.bind("touchend",function(){
-                        event.preventDefault();
-                        mx = startX - moveX;
-                        if(mx>150){
-                            page2.hide();
-                            $(".page3-info").show();
-                            $(".page3").show();
-                            $(".page3-info").transition({
-                                opacity : 1
-                            },'1000','linear',function(){
-                                $(".arrowLeft ").show();
-                                $(".arrowLeft ").addClass('arrowRun');
-                                $(".map").click(function(){
-                                    location.href = "http://api.map.baidu.com/marker?location=31.323631,120.718211&title=%e9%87%91%e9%b8%a1%e6%b9%96%e6%96%b0%e7%bd%97%e9%85%92%e5%ba%97%e8%8b%8f%e5%9b%ad%e5%8e%85&content=%e5%b7%a5%e4%b8%9a%e5%9b%ad%e5%8c%ba%e6%97%ba%e5%a2%a9%e8%b7%af188%e5%8f%b7%e8%bf%91%e7%8e%b0%e4%bb%a3%e4%bc%91%e9%97%b2%e5%b9%bf%e5%9c%ba&output=html";
+                        });
+                        page2.bind("touchend",function(){
+                            event.preventDefault();
+                            mx = startX - moveX;
+                            if(mx>150){
+                                page2.hide();
+                                $(".page3-info").show();
+                                $(".page3").show();
+                                $(".page3-info").transition({
+                                    opacity : 1
+                                },'1000','linear',function(){
+                                    $(".arrowLeft ").show();
+                                    $(".arrowLeft ").addClass('arrowRun');
+                                    $(".map").click(function(){
+                                        location.href = "http://api.map.baidu.com/marker?location=31.323631,120.718211&title=%e9%87%91%e9%b8%a1%e6%b9%96%e6%96%b0%e7%bd%97%e9%85%92%e5%ba%97%e8%8b%8f%e5%9b%ad%e5%8e%85&content=%e5%b7%a5%e4%b8%9a%e5%9b%ad%e5%8c%ba%e6%97%ba%e5%a2%a9%e8%b7%af188%e5%8f%b7%e8%bf%91%e7%8e%b0%e4%bb%a3%e4%bc%91%e9%97%b2%e5%b9%bf%e5%9c%ba&output=html";
+                                    });
                                 });
-                            });
-                            //$(".page3").show();
-                        }else{
-                            page3.animate({"left":"0"},200);
-                        }
+                                //$(".page3").show();
+                            }else{
+                                page3.animate({"left":"0"},200);
+                            }
+                        });
                     });
                 });
-            });
+            },1000)
+
 
 
         });
