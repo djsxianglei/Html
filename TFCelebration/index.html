@@ -14,6 +14,10 @@
             <source src="images/music.mp3" type="audio/mpeg">
             你的浏览器不支持audio标签
         </audio>
+        <audio id="sound" preload="auto">
+            <source src="images/sound.mp3" type="audio/mpeg">
+            你的浏览器不支持audio标签
+        </audio>
         <div id="toggle" onclick="toggleSound();"></div>
     </div>
     <div class="preload-img">

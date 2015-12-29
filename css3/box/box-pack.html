@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>父容器里面子容器的水平对齐方式</title>
+    <!--start | end | center | justify-->
+    <!--
+    start在box-pack表示水平居左对齐
+    end在box-pack表示水平居右对齐
+    center在box-pack表示水平居中对齐
+    justify在box-pack表示水平等分父容器宽度（唯一遗憾的是，firefox与opera暂时不支持，只有safari、chrome支持）
+    -->
+    <!--谷歌里面start和stretch效果一样，火狐里面不一样-->
+    <style>
+        .wrap{
+            width:600px;
+            height:108px;
+            border:1px solid red;
+            display:-moz-box;
+            display:-webkit-box;
+            -moz-box-pack:end;
+            -webkit-box-pack:end;
+            -o-box-pack:end;
+            font-family: "微软雅黑", "klavika-web", "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+        }
+        .wrap section{
+            width:100px;
+        }
+        .wrap .sectionOne{
+            background:orange;
+        }
+        .wrap .sectionTwo{
+            background:purple;
+        }
+        .wrap .sectionThree{
+            background:green;
+        }
+    </style>
+</head>
+<body>
+    <article class="wrap">
+        <section class="sectionOne">01</section>
+        <section class="sectionTwo">02</section>
+        <section class="sectionThree">03</section>
+    </article>
+</body>
+</html>

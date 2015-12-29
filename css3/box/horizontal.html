@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>定义模块大小自适应</title>
+    <!--当排列被指定为水平方向时，3个元素的宽度为元素中内容的宽度，高度自动变为容器的高度-->
+    <!--当排列被指定为垂直方向时，3个元素的高度为元素中内容的高度，宽度自动变为容器的宽度-->
+    <style>
+        #container{
+            display: -moz-box;
+            display: -webkit-box;
+            border:1px solid #cccccc;
+            -moz-box-orient: horizontal;
+            -webkit-box-orient: horizontal;
+            width:800px;
+            height:200px;
+        }
+        #text-a{
+            background:orange;
+        }
+        #text-b{
+            background:yellow;
+        }
+        #text-c{
+            background:limegreen;
+        }
+        #text-a,#text-b,#text-c{
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            font-size:1.5em;
+            font-weight: bold;
+            width:200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="text-a">列1</div>
+        <div id="text-b">列2</div>
+        <div id="text-c">列3</div>
+    </div>
+</body>
+</html>

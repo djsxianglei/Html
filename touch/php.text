@@ -1,0 +1,20 @@
+对于 (...) && (...) && (...) ...
+
+从左至右遍历各个子表达式，并将每个子表达式进行 Boolean 的强制转换，若出现 Boolean(子表达式) 为 false 的情况，
+则整个表达式的值即为此子表达式的值（0 或 false 或 undefined 或 null 或 ''），后面的子表达式不再判断；
+若所有的 Boolean(子表达式) 均为 true，则整个表达式的值即为最后一个子表达式的值。
+
+对于 (...) || (...) || (...) ...
+
+从左至右遍历各个子表达式，并将每个子表达式进行 Boolean 的强制转换，若出现 Boolean(子表达式) 为 true 的情况，
+则整个表达式的值即为此子表达式的值，后面的子表达式不再“理会”；若 Boolean(子表达式) 为 false，
+则判断后一个子表达式的 Boolean 情况，直至找到 Boolean(子表达式) 为 true 的情况；
+若全部的 Boolean(子表达式) 均为 false，则返回最后一个子表达式的值（0 或 false 或 undefined 或 null 或 ''）。
+
+Boolean(false) != Boolean('false')，前者为 false，而后者为 true 。
+
+Boolean(undefined) != Boolean('undefined')，前者为 false，而后者为 true 。
+
+Boolean(null) != Boolean('null')，前者为 false，而后者为 true 。
+
+Boolean(0) != Boolean('0')，前者为 false，而后者为 true 。

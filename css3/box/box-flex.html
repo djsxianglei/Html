@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <title>定义自适应宽度</title>
+    <style>
+        #container{
+            display : -webkit-box;
+            display : -moz-box;
+        }
+        #left-sidebar{
+            width:200px;
+            padding:20px;
+            background: orange;
+        }
+        #contents{
+            -webkit-box-flex: 1;
+            -moz-box-flex: 1;
+            padding:20px;
+            background:yellow;
+        }
+        #right-sidebar{
+            width:200px;
+            padding:20px;
+            background:limegreen;
+        }
+        /*绑定3列栏目为一个盒子整体布局效果*/
+        #left-sidebar,#contents,#right-sidebar{
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="left-sidebar">
+        <h2>站内导航</h2>
+        <ul>
+            <li><a href="#">新闻</a></li>
+            <li><a href="#">博客</a></li>
+            <li><a href="#">微博</a></li>
+            <li><a href="#">社区</a></li>
+            <li><a href="#">关于</a></li>
+        </ul>
+    </div>
+    <div id="contents">
+        <h2>35+11+9+4!波特兰又升一妖旗 11年没见这数据</h2>
+        <p>
+            北京时间12月29日，昨天开拓者客场98-94击败国王的比赛中，开拓者年轻后卫C.J.-迈克科伦姆出场42分钟，28投14中砍下35分，外加11个篮板、9次助攻和4次抢断，从而成为NBA近11年来首次打出这般数据的球员。
+            　　NBA上一位打出迈克科伦姆这样数据的球员是凯文-加内特。2004年12月11日，加内特在对阵国王的比赛中曾得到35分、18个篮板、9次助攻和4次抢断。
+            　　在开拓者队历史上，“滑翔机”德雷克斯勒曾在1992年的一场比赛中打出过39分13篮板9助攻4抢断的数据。此外，迈克尔-乔丹、拉里-伯德以及阿伦-艾弗森也曾分别打出过一次这样的数据。
+            　　作为2013年的首轮10号新秀，C.J.-迈克科伦姆曾被寄予很高的期望，但是在开拓者队的前两年，他的出场时间相对有限。不过随着开拓者的阵容在今夏发生重大调整，特别是以阿德为首的四名首发球员全部离队，迈克科伦姆迎来了机会，而且他牢牢把握住了。
+            　　“在这里的前两年，CJ非常刻苦，他学习了NBA比赛，并且花费了很多时间，从而能够取得现在这样的成功，”开拓者队主帅特里-斯托特斯在赛后如此评价迈克科伦姆
+            　　本赛季，迈克科伦姆在绝大多数时间里都出任二号位。但是由于利拉德因伤缺阵四场比赛，迈克科伦姆被移到了一号位，而他在对阵国王队的比赛中可谓是无所不能。除了28投14中砍下35分之外，他还得到
+        </p>
+    </div>
+    <div id="right-sidebar">
+        <h2>友情链接</h2>
+        <ul>
+            <li><a href="#">百度</a></li>
+            <li><a href="#">谷歌</a></li>
+            <li><a href="#">360</a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

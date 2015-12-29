@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <title></title>
+    <style>
+        html,body{
+            margin:0px;
+            padding:0px;
+            background:#ccc;
+            overflow:hidden;
+            width:100%;
+            height:100%;
+        }
+        /* 隐藏画布外的内容 */
+        #canvas{
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        li,ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            width:100%;
+            height:100%;
+        }
+        /* 使得图片居中 webkit-box */
+        li{
+            position: absolute;
+            display:-webkit-box;
+            -webkit-box-align: center;
+            -webkit-box-pack:center;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="canvas">
+        <!--<ul>
+            <li><img src="imgs/1.jpg"/> </li>
+        </ul>-->
+    </div>
+
+
+    <script>
+        //所有的数据
+        var list = [{
+            height: 950,
+            width: 800,
+            img: "imgs/1.jpg"
+        },
+            {
+                height: 1187,
+                width: 900,
+                img: "imgs/2.jpg"
+            },
+            {
+                height: 766,
+                width: 980,
+                img: "imgs/3.jpg"
+            },
+            {
+                height: 754,
+                width: 980,
+                img: "imgs/4.jpg"
+            },
+            {
+                height: 493,
+                img: "imgs/5.jpg",
+                width: 750
+            },
+            {
+                height: 500,
+                img: "imgs/6.jpg",
+                width: 750
+            },
+            {
+                height: 600,
+                img: "imgs/7.jpg",
+                width: 400
+            }];
+        function Slider(opts){
+            //构造函数需要的参数
+            this.wrap = opts.dom;
+            this.list = opts.list;
+            //构造三部曲
+            this.init();
+            this.renderDOM();
+            this.bindDOM();
+        }
+        //第一步 -- 初始化
+        Slider.prototype.init = function(){
+            //设置宽高比
+            this.radio = window.innerHeight/window.innerWidth;
+            //设置一页宽度
+            this.scaleW = window.innerWidth;
+            //设置初始的索引值
+            this.idx = 0;
+        };
+        //根据数据渲染dom
+        Slider.prototype.renderDOM = function(){
+            var warp = this.wrap;
+            var data = this.list;
+            var len = data.length;
+            //创建ul
+            this.outer = document.createElement('ul');
+            //将数据填充到ul里面
+            for (var i = 0;i<len;i++){
+                var li = document.createElement('li')
+                li.style.width = this.scaleW + 'px';
+                li.style.webkitTransform = 'translate3d('+(this.scaleW*i)+'px,0,0)';
+                var item = data[i];
+                if(item){
+                    //根据窗口的比例与图片的比例来确定
+                    //图片是根据宽度来等比缩放还是根据高度来等比缩放
+                    if(item['height']/item['width'] >　this.radio){
+                        li.innerHTML = '<img src="'+item['img']+'" height="'+window.innerHeight+'px"/>';
+                    }else{
+                        li.innerHTML = '<img src="'+item['img']+'" width="'+window.innerWidth+'px"/>';
+                    }
+                }
+                //UL的宽度和画布宽度一致
+                this.outer.style.cssText = 'width:' + this.scaleW +'px';
+
+                warp.style.height = window.innerHeight + 'px';
+                this.outer.appendChild(li);
+            }
+
+
+            warp.appendChild(this.outer);
+        };
+        //第三步 -- 绑定 DOM 事件
+        Slider.prototype.bindDOM = function(){
+            var self = this;
+            var outer = self.outer;
+            var len = self.list.length;
+            var scaleW = self.scaleW;
+            //手指按下的处理事件
+            var startHandler = function(evt){
+                //记录刚刚开始按下的时间
+                self.startTime = (new Date()).getTime();
+                //记录手按下的坐标
+                self.startX = evt.touches[0].pageX;
+                //清除偏移量
+                self.offsetX = 0;
+                //事件对象
+                var target = evt.target;
+                while(target.nodeName != 'LI' && target.nodeName != 'BODY'){
+                    target = target.parentNode;
+                };
+                self.target = target;
+            };
+            //手指移动的处理事件
+            var moveHandler = function(evt){
+                //兼容chrome android，阻止浏览器默认行为
+                evt.preventDefault();
+                self.offsetX = evt.touches[0].pageX - self.startX;
+                //起始索引
+                var i = self.idx - 1;
+                //结束索引
+                var m = i + 3;
+                var lis= outer.getElementsByTagName('li');
+                for(i;i<m;i++){
+                    lis[i] && (lis[i].style.webkittransiton='-webkit-transform 0s ease-out');
+                    lis[i] && (lis[i].style.webkitTransform = 'translate3d('+(self.scaleW*(i-self.idx)+self.offsetX)+'px,0,0)');
+                }
+            }
+            //手指抬起的处理事件
+            var endHandler = function(evt){
+                //兼容chrome android，阻止浏览器默认行为
+                evt.preventDefault();
+                //边界就翻页值
+                var boundart = self.scaleW/6;
+                var endTime = (new Date()).getTime();
+
+
+
+            }
+
+
+
+            //绑定事件
+            outer.addEventListener('touchstart',startHandler)
+            outer.addEventListener('touchmove',moveHandler);
+            outer.addEventListener('touchend',endHandler);
+
+        };
+        new Slider({
+            dom : document.getElementById('canvas'),
+            list : list
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+</body>
+</html>
