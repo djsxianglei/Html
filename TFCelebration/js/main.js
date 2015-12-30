@@ -13,10 +13,15 @@ window.onload = function(){
         var page1 = $(".page1");
         var mx = '';
         page1.bind("touchstart",function(){
-            if(audio.paused){
+            /*if(audio.paused){
                 audio.play();
                 $("#toggle").addClass("toggle_pic");
                 $("#toggle").css('background-image','url(images/openMusic.png)');
+            }*/
+            if(mAudio == 1){
+                if(audio.paused){
+                    audio.play();
+                }
             }
             event.preventDefault();
             var touch1 = event.touches[0];
@@ -63,7 +68,7 @@ window.onload = function(){
                                     },'400','ease-in',function(){
                                         $(".panelA").transition({
                                             opacity:1,
-                                            width : "90%"
+                                            width : "80%"
                                         },'1000','linear',function(){
                                             $(".panelB").transition({
                                                 opacity:1
@@ -92,7 +97,7 @@ window.onload = function(){
                                                                 opacity:[0,1]       //切割子元素透明度变化，默认初始为1，结束为1(即无渐变)
                                                             });
                                                             setTimeout(function(){
-                                                                $(".panelC").css({
+                                                                $("#fragment_title").css({
                                                                     "border": "4px solid #023c91",
                                                                     "border-radius":"10px"
                                                                 });
@@ -127,12 +132,12 @@ window.onload = function(){
 
 
                                                                         });
-                                                                    },800);
+                                                                    },2000);
                                                                 });
                                                             },1500);
                                                         });
                                                     });
-                                                },800);
+                                                },2000);
                                             });
                                         });
                                     });
@@ -162,8 +167,10 @@ window.onload = function(){
         $(".doorBottom").transition({
             bottom : '-'+ inX + 'px'
         },'1500','linear',function(){
-            if(audio.paused){
-                audio.play();
+            if(mAudio == 1){
+                if(audio.paused){
+                    audio.play();
+                }
             }
             setTimeout(function(){
                 $(".page2-btn").hide();

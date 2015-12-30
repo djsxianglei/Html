@@ -236,6 +236,9 @@ img {
 .typeWord p:nth-child(2){
     text-indent: 44px;
 }
+.typeWord p:nth-child(3){
+    text-indent: 44px;
+}
 .activitySite{
     position: absolute;
     width: 471px;
@@ -466,7 +469,7 @@ img {
     position: absolute;
     top: 14%;
     left: 50%;
-    margin-left: -45%;
+    margin-left: -40%;
     opacity: 0;
     border: 4px solid #023c91;
     border-radius: 10px;
@@ -475,12 +478,12 @@ img {
     width:100%;
 }
 .panelB{
-    width: 90%;
+    width: 80%;
     overflow: hidden;
     position: absolute;
     top: 52%;
     left: 50%;
-    margin-left: -45%;
+    margin-left: -40%;
     opacity: 0;
     border: 4px solid #023c91;
     border-radius: 10px;
@@ -491,62 +494,70 @@ img {
 
 
 .panelC{
-    width: 90%;
     overflow: hidden;
     position: absolute;
     top: 14%;
-    left: 50%;
-    margin-left: -45%;
     opacity: 0;
+    width:100%;
+    display:-moz-box;
+    display:-webkit-box;
+    -moz-box-pack:center;
+    -webkit-box-pack:center;
+    -o-box-pack:center;
 }
 #fragment_title{
     position: relative;
-    width:640px;
+    width: 576px;
     height:341px;
     background-size:100% 100%;
     background-repeat: no-repeat;
+    overflow:hidden;
 }
 .panelD{
-    width: 90%;
+    width: 100%;
+    height: 358px;
     overflow: hidden;
     position: absolute;
     top: 52%;
-    left: 50%;
-    margin-left: -45%;
     opacity: 0;
+    display:-moz-box;
+    display:-webkit-box;
+    -moz-box-pack:center;
+    -webkit-box-pack:center;
+    -o-box-pack:center;
+}
+.panelD img{
+    width:576px;
     border: 4px solid #023c91;
     border-radius: 10px;
 }
-.img4{
-    width:100%;
-}
 .panelE{
-    width: 90%;
+    width: 100%;
     overflow: hidden;
     position: absolute;
     top: 12%;
     left: 50%;
-    margin-left: -45%;
+    margin-left: -40%;
     opacity: 0;
     display:none;
 }
 .panelE img{
-    width:90%;
+    width:80%;
     border: 4px solid #023c91;
     border-radius: 10px;
 }
 .panelF{
-    width: 90%;
+    width: 100%;
     overflow: hidden;
     position: absolute;
     top: 52%;
     left: 50%;
-    margin-left: -45%;
+    margin-left: -40%;
     opacity: 0;
     display:none;
 }
 .panelF img{
-    width:90%;
+    width:80%;
     border: 4px solid #023c91;
     border-radius: 10px;
 }

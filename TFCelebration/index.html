@@ -63,7 +63,7 @@
             <!--<img src="images/DSC03470-1.jpg" />-->
         </div>
         <div class="panelD">
-            <div class="img4"><img src="images/DSC03782-1.jpg" /></div>
+            <img src="images/DSC03782-1.jpg" />
         </div>
         <div class="panelE">
             <img src="images/DSC03394.jpg" />
@@ -79,7 +79,7 @@
         <div class="wordType">
             <p></p>
             <p style="text-indent: 44px;"></p>
-            <p></p>
+            <p style="text-indent: 44px;"></p>
         </div>
         <div class="activitySite"></div>
         <div class="arrowRight"></div>
@@ -133,6 +133,7 @@
 <script>
     var audio = document.getElementById("audio");
     var sound = document.getElementById('sound');
+    var mAudio = 1;
     $("#toggle").addClass("toggle_pic");
     if(audio.paused){
         audio.play();
@@ -143,17 +144,21 @@
         var audio = document.getElementById("audio");
         if(audio.paused){
             audio.play();
+            mAudio = 1;
             $("#toggle").addClass("toggle_pic");
             $("#toggle").css('background-image','url(images/openMusic.png)');
         }else{
             audio.pause();
+            mAudio = 0;
             $("#toggle").removeClass("toggle_pic");
             $("#toggle").css('background-image','url(images/closeMusic.png)');
         }
     }
     document.addEventListener("WeixinJSBridgeReady",function(){
         WeixinJSBridge.invoke('getNetworkType',{}, function(e){
-            audio.play()
+            if(mAudio == 1){
+                audio.play();
+            }
         })
     },false);
 </script>
