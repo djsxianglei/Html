@@ -190,7 +190,8 @@
                 alert("电话号码不能为空！或者电话格式不正确");
                 return false;
             }
-            return true;
+            alert("报名已截止！");
+            return false;
         });
     });
 </script>
