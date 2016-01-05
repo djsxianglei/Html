@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    请选择：
+    <select id="page">
+        <option value="page-a" selected>1</option>
+        <option value="page-b">2</option>
+        <option value="page-c">3</option>
+    </select>
+
+<script>
+    /*
+     * 下拉选择页面
+     * @param {[type]}
+     * */
+    var page = document.querySelector('#page');
+    //层级
+    var index = 10;
+    page.addEventListener("change",function(e){
+        //页面元素
+        var pageName = e.target.value;
+        alert(pageName);
+    });
+</script>
+</body>
+</html>

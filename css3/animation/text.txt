@@ -2,10 +2,23 @@ CSS3的Animation有八个属性
 animation-name
 animation-duration
 animation-delay
-animation-iteration-count
+
+animation-iteration-count 属性定义动画的播放次数。
+默认1次 animation-iteration-count: n|infinite;
+
 animation-direction
 animation-play-state
-animation-fill-mode
+
+animation-fill-mode 属性规定动画在播放之前或之后，其动画效果是否可见。
+
+animation-fill-mode: forwards;
+
+none	不改变默认行为。
+forwards	当动画完成后，保持最后一个属性值（在最后一个关键帧中定义）。
+backwards	在 animation-delay 所指定的一段时间内，在动画显示之前，应用开始属性值（在第一个关键帧中定义）。
+both	向前和向后填充模式都被应用。
+
+
 animation-timing-function
 
 animation默认以ease方式过渡，它会在每个关键帧之间插入补间动画，所以动画效果是连贯性的
@@ -44,7 +57,7 @@ steps函数，它可以传入两个参数，第一个是一个大于0的整数，他是将间隔动画等分成指定
 
 /*写法1*/
 -moz-animation: bird-slow 400ms steps(1,start) infinite;
-
+-webkit-animation: effectOut 8s ease-in-out forwards;
 /*写法2*/
 -webkit-animation-name: bird-slow;
 -webkit-animation-duration: 400ms;

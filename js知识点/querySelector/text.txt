@@ -1,0 +1,30 @@
+querySelector() 方法返回文档中匹配指定 CSS 选择器的一个元素。
+注意： querySelector() 方法仅仅返回匹配指定选择器的第一个元素。如果你需要返回所有的元素，请使用 querySelectorAll() 方法替代。
+
+
+CSS 选择器	String	必须。指定一个或多个匹配元素的 CSS 选择器。 可以使用它们的 id, 类, 类型, 属性, 属性值等来选取元素。
+
+对于多个选择器，使用逗号隔开，返回一个匹配的元素。
+
+
+1 获取文档中第一个 <p> 元素：
+  document.querySelector("p");
+2 获取文档中 class="example" 的第一个元素:
+  document.querySelector(".example");
+3 获取文档中 class="example" 的第一个 <p> 元素:
+  document.querySelector("p.example");
+4 获取文档中有 "target" 属性的第一个 <a> 元素：
+  document.querySelector("a[target]");
+5 实例
+  以下实例演示了多个选择器的使用方法。
+  假定你选择了两个选择器: <h2> 和 <h3> 元素。
+  以下代码将为文档的第一个 <h2> 元素添加背景颜色：
+  <h2>A h2 element</h2>
+  <h3>A h3 element</h3>
+
+  document.querySelector("h2, h3").style.backgroundColor = "red";
+6 但是，如果文档中 <h3> 元素位于 <h2> 元素之前，<h3> 元素将会被设置指定的背景颜色。
+  <h3>A h3 element</h3>
+  <h2>A h2 element</h2>
+
+  document.querySelector("h2, h3").style.backgroundColor = "red";

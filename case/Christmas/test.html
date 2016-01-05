@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>圣诞节</title>
+    <link href="css/style.css" rel="stylesheet"/>
+    <script src="js/jquery-2.1.4.js" type="text/javascript"/>
+    <script src="js/jquery.transit.js" type="text/javascript"></script>
+    <script src="js/pageC.js" type="text/javascript"></script>
+    <script src="js/pageB.js" type="text/javascript"></script>
+    <script src="js/pageA.js" type="text/javascript"></script>
+    <script src="js/Christmas.js" type="text/javascript"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+<section class="container">
+    <!--第一幅画面-->
+    <section class="page-a bg-adaptive"></section>
+    <!--第二幅画面-->
+    <section class="page-b bg-adaptive"></section>
+    <!--第三幅画面-->
+    <section class="page-c bg-adaptive"></section>
+</section>
+选择页面：
+<select id="page">
+    <option value="page-a" selected>1</option>
+    <option value="page-b">2</option>
+    <option value="page-c">3</option>
+</select>
+<script>
+    /**
+     * 针对content中的html文本框
+     * 增加rem的修改
+     * @param  {[type]} doc [description]
+     * @param  {[type]} win [description]
+     * @return {[type]}     [description]
+     */
+    var doc = document;
+    var docEl = doc.documentElement,
+            reSizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            reCalc = function(){
+                //自适应设计容器高度
+                var container = document.querySelector('.container');
+                //原始比例
+                var proportion = 900/1440;
+                container.style.height = container.clientWidth * proportion + 'px';
+            };
+    window.addEventListener(reSizeEvt,reCalc,false);
+    doc.addEventListener('DOMContentLoaded',reCalc,false);
+
+
+    /*
+     * 下拉选择页面
+     * @param {[type]}
+     * */
+    /*var page = document.querySelector('#page');
+     //层级
+     var index = 10;
+     page.addEventListener("change",function(e){
+     //页面元素
+     var pageName = e.target.value;
+     switch (pageName){
+     case 'page-b':
+     $(".page-a").addClass("effect-out");
+     break;
+     case 'page-c':
+     $(".page-c").addClass("effect-in");
+     break;
+     }
+     });*/
+
+
+
+
+</script>
+
+
+</body>
+</html>
