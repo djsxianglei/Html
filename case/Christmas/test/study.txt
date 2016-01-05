@@ -1,0 +1,41 @@
+DOMContentLoaded事件
+过去,当一个页面完成加载时,初始化脚本的方法是使用load事件,但这个类函数的缺点是仅在所有资源都完全加载后才被触发,这有时会导致比较严重的
+延迟,开发人员随后创建了一种自定义事件,domready,它在DOM加载之后及资源加载之前被触发.
+domready事件迅速被众多JavaScript库所采用,它开始在本地浏览器中以DOMContentLoaded的形式被使用;此外,它目前已在HTML5中被标准化,
+下面的代码显示了DOMContentLoaded是如何在document对象中被触发的;
+document.addeventListener('DOMContentLoaded',function(){...},false);
+值得注意的是,这个网站的行为层可以被更快速地启动,这意味着用户可以更快开始浏览网站,这对于连接速度慢的网络或者包含大量图片并需要一
+些时间加载图片的网页来说特别重要,如果只想在所有资源都完成加载之后运行脚本, 那么仍然可以使用load.
+
+
+网页中获取滚动条卷去部分的高度，可以通过 document.body.scrollTop 来获取，比如使div跟着滚动条滚动：
+<div id="div" style="width:100px;height:100px;background:#ccc;position:absolute;"></div>
+window.onscroll = function ()
+{
+    var div = document.getElementById("div");
+    div.style.top = document.body.scrollTop + "px";
+}
+运行后没有达到预期效果，输出 document.body.scrollTop 的值一看，一直都是 0。一翻折腾，原来是 DTD 的问题，要是页面直接用 <html>
+开头的话就没有问题了。但是要符合 web 标准，DTD 当然是不能少的。
+如果有 DTD 时用，那就用 document.documentElement.scrollTop 代替 document.body.scrollTop 就可以了。
+window.onscroll = function ()
+{
+    var oFix = document.getElementById("divfix");
+    oFix.style.top = document.documentElement.scrollTop + "px";
+}
+DTD相关说明：
+页面具有 DTD，或者说指定了 DOCTYPE 时，使用 document.documentElement。
+页面不具有 DTD，或者说没有指定了 DOCTYPE，时，使用 document.body。
+在 IE 和 Firefox 中均是如此。
+为了兼容，不管有没有 DTD，可以使用如下代码：
+var scrollTop = window.pageYOffset  //用于FF
+                || document.documentElement.scrollTop
+                || document.body.scrollTop
+                || 0;
+documentElement 和 body 相关说明：
+body是DOM对象里的body子节点，即 <body> 标签；
+documentElement 是整个节点树的根节点root，即<html> 标签；
+DOM把层次中的每一个对象都称之为节点，就是一个层次结构，你可以理解为一个树形结构，就像我们的目录一样，一个根目录，根目录下有子目录，
+子目录下还有子目录。
+以HTML超文本标记语言为例：整个文档的一个根就是,在DOM中可以使用document.documentElement来访问它，它就是整个节点树的根节点。
+而body是子节点，要访问到body标签，在脚本中应该写：document.body。

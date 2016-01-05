@@ -1,0 +1,70 @@
+CSS3的Animation有八个属性
+animation-name
+animation-duration
+animation-delay
+animation-iteration-count
+animation-direction
+animation-play-state
+animation-fill-mode
+animation-timing-function
+
+animation默认以ease方式过渡，它会在每个关键帧之间插入补间动画，所以动画效果是连贯性的
+
+除了ease，linear、cubic-bezier之类的过渡函数都会为其插入补间。但有些效果不需要补间，只需要关键帧之间的跳跃，这时应该使
+用steps过渡方式
+linear	动画从头到尾的速度是相同的。
+ease	默认。动画以低速开始，然后加快，在结束前变慢。
+ease-in	动画以低速开始。
+ease-out	动画以低速结束。
+ease-in-out	动画以低速开始和结束。
+cubic-bezier(n,n,n,n)	在 cubic-bezier 函数中自己的值。可能的值是从 0 到 1 的数值。
+简单的来说，我们一直使用animation基本都是实现线性渐变的动画
+如
+位置在固定的时间从起点到终点
+尺寸在固定的时间线性变化
+颜色的线性改变等等
+.test1 {
+    width: 90px;
+    height: 60px;
+    -webkit-animation-name: skyset;
+    -webkit-animation-duration: 2000ms;
+    -webkit-animation-iteration-count: infinite; /*无限循环*/
+    -webkit-animation-timing-function: linear;
+}
+@-webkit-keyframes skyset {
+    0% { background: red;}
+    50%{ background: blue}
+    100% {background: yellow;}
+}
+steps函数，它可以传入两个参数，第一个是一个大于0的整数，他是将间隔动画等分成指定数目的小间隔动画，然后根据第二个参数来决定显示效果。
+
+第二个参数设置后其实和step-start，step-end同义，在分成的小间隔动画中判断显示效果。可以看出：steps(1, start) 等于step-start，steps(1,end)等于step-end
+
+最核心的一点就是：timing-function 作用于每两个关键帧之间，而不是整个动画
+
+/*写法1*/
+-moz-animation: bird-slow 400ms steps(1,start) infinite;
+
+/*写法2*/
+-webkit-animation-name: bird-slow;
+-webkit-animation-duration: 400ms;
+-webkit-animation-timing-function: steps(3);
+-webkit-animation-iteration-count: infinite;
+如果实现3张图帧动画效果，代码如下
+
+animation:bird-slow 400ms steps(3) infinite;
+@keyframes bird-slow {
+    0% {background-position-x: -0px}
+    100% {background-position-x: -273px}
+}
+通过定义一个类，类中定义的动画的一些关键数据，比如动画名，时间，次数，切换的位置
+
+通过keyframes定义动画具体执行参数与时间段
+
+steps(3)的意思就是：keyframes设置的0%-100%的段中，background-position的的x坐标会变化3次
+
+steps会平分这些段落值，其变化值就是
+
+background-position-x: -0px
+background-position-x: -91px
+background-position-x: -182px

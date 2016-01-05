@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>颜色线性变化</title>
+    <style>
+        .test1 {
+            width: 90px;
+            height: 60px;
+            -webkit-animation-name: skyset;
+            -webkit-animation-duration: 2000ms;
+            -webkit-animation-iteration-count: infinite; /*无限循环*/
+            -webkit-animation-timing-function: linear;
+        }
+        @-webkit-keyframes skyset {
+            0% { background: red;}
+            50%{ background: blue}
+            100% {background: yellow;}
+        }
+    </style>
+</head>
+<body>
+    <div class="test1">
+
+    </div>
+</body>
+</html>
