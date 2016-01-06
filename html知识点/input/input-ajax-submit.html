@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <form action="" id="todoForm">
+                <div class="form-group">
+                    <label for="todoInput">将下面输入的文字放入todo list中！</label>
+                    <input type="text" id="todoInput" class="form-control" required/>
+                </div>
+                <div class="form-group">
+                    <label for="todoInput">将下面输入的文字放入todo list中！</label>
+                    <input type="text" id="todoInput2" class="form-control"/>
+                </div>
+                <input type="submit" value="llll"/>
+            </form>
+            <p id="todoCount"></p>
+            <ol id="todoList"></ol>
+        </div>
+    </div>
+</div>
+<script src="jquery-2.1.4.js" type="text/javascript"></script>
+<script>
+    (function(){
+        var $todoForm = $('#todoForm');
+        var $todoInput = $('#todoInput');
+        var $todoList = $("#todoList");
+        $todoForm.submit(function(e){
+            e.preventDefault();
+            var input_value = $todoInput.val();
+            $todoList.append('<li>'+input_value+'&nbsp;<a href="#" class="todoDelete">x</a></li>');
+            $todoInput.val('');
+        });
+    })();
+</script>
+</body>
+</html>

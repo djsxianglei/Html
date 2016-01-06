@@ -1,0 +1,18 @@
+各种默认回车提交表单
+通过回车进行提交表单，可以在用户输入完毕后直接进行回车查询操作，不用点击鼠标，在某些场景应用下非常方便，用户体验较好。
+
+总结＆科普一下：
+
+1、如果form里面只有一个input type＝text，那么无论有没有submit按钮，在input中回车都会提交表单。如果不想回车提交，需要再加一个
+input type=text，然后设置display:none.
+
+2、如果form里面多于一个input type＝text，那么必须有一个submit按钮才可以回车提交表单。
+按钮可以是input也可以是button，他们应设置type=submit。如果只写button而不写type，那么IE下type＝button，FF下则是type＝submit。
+
+3、如果form里面多于一个input type＝text，并想实现回车提交表单，又不想在页面中出现原生的submit按钮。比如：你想通过一个带hover
+的图片连接，并通过js脚本来实现华丽的验证及表单提交……
+
+可以加上一个input type=submit 并设置display:none在form里—— 但是！这仅仅对FF等有效。在IE下就会非常悲剧……如果希望IE生效，
+需要做以下的事情：
+
+<input type="submit" style="display:block;overflow:hidden;width:0px;height:0px; position:absolute">
