@@ -105,7 +105,7 @@
 <script src="js/jquery-2.1.4.js" type="text/javascript"></script>
 <script src="js/jquery.transit.js" type="text/javascript"></script>
 <script src="js/jquery.fragmentFly.js" type="text/javascript"></script>
-<script src="js/main.js" type="text/javascript"></script>
+<script src="js/jquery_main.js" type="text/javascript"></script>
 <script>
     $(function(){
         var sn=location.hash;

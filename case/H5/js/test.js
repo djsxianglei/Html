@@ -1,4 +1,4 @@
-var wxurl="http://www.e532.com/hd/html/index.html";
+var wxurl="http://www.e532.com/hd/html/jquery_index.html";
 var _w, _h;
 var share = new WxMoment.Share();
 var wa;

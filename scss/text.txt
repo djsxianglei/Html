@@ -1,0 +1,30 @@
+﻿http://koala-app.com/
+sass编辑器
+
+
+webstorm 配置sass
+
+打开settings，可以看到Tools下面有个file watchers选项
+点击加号，选择SCSS或者SASS(根据自己写的格式，SCSS是最新版的SASS后缀)，我们这里选择是SCSS，进入配置界面
+File type就是我们需要监视的文件类型，这里当然是SCSS
+
+Scope监视范围可以选择不同监视范围，这样就可以设置多个监视配置，输出对应不同的目录或者module下的SCSS文件。
+
+Programe是scss编译工具的目录地址，因为SASS是依赖ruby的，所以我们还需要去安装ruby，ruby在window下的安装
+文件下载可以在   http://rubyinstaller.org/downloads/   网站找到，我这里下的193。其他环境的可以去官网
+下载：https://www.ruby-lang.org/
+
+安装好ruby以后，打开cmd，输入gem install sass就可以安装SASS了，但是由于gem的默认原地址由于国内伟大的GFW原因
+可能连接不上导致无法安装，所以我们还需要替换一下。
+
+依次输入：
+
+gem sources –r http://rubygems.org/
+
+gem sources –a http://ruby.taobao.org/
+
+gem sources –l
+
+如果我们看到最后显示的地址只有国内淘宝提供的镜像地址就OK了
+
+然后再输入gem install sass就可以了，完成后输入sass –v 就会返回sass的版本号。
