@@ -13,11 +13,6 @@ window.onload = function(){
         var page1 = $(".page1");
         var mx = '';
         page1.bind("touchstart",function(){
-            /*if(audio.paused){
-                audio.play();
-                $("#toggle").addClass("toggle_pic");
-                $("#toggle").css('background-image','url(images/openMusic.png)');
-            }*/
             if(mAudio == 1){
                 if(audio.paused){
                     audio.play();
@@ -269,7 +264,210 @@ window.onload = function(){
         mx = startX - moveX;
         if(mx>150){
             page3.hide();
-            $(".page4").show();
+            $(".page7").show();
+            $(".activity1").transition({
+                opacity : 1
+            },'800','linear',function(){
+                $(".activity2").transition({
+                    opacity : 1
+                },'800','linear',function(){
+                    $(".activity3").transition({
+                        opacity : 1
+                    },'800','linear',function(){
+                        $(".activity4").transition({
+                            opacity : 1
+                        },'800','linear',function(){
+                            $(".activity5").transition({
+                                opacity : 1
+                            },'800','linear',function(){
+                                $(".activity6").transition({
+                                    opacity : 1
+                                },'800','linear',function(){
+                                    $(".activity7").transition({
+                                        opacity : 1
+                                    },'800','linear',function(){
+                                        $(".activity8").transition({
+                                            opacity : 1
+                                        },'800','linear',function(){
+                                            $(".arrowRight").show();
+                                            var page7 = $(".page7");
+                                            var mx = '';
+                                            page7.bind("touchstart",function(){
+                                                event.preventDefault();
+                                                var touch1 = event.touches[0];
+                                                startX = touch1.pageX;
+                                            });
+                                            page7.bind("touchmove",function(){
+                                                event.preventDefault();
+                                                var touch1 = event.touches[0];
+                                                moveX = touch1.pageX;
+                                                mx = moveX-startX;
+                                                page7.css({"left":mx+"px"});
+                                            });
+                                            page7.bind("touchend",function(){
+                                                event.preventDefault();
+                                                mx = startX - moveX;
+                                                if(mx>150){
+                                                    page7.hide();
+                                                    $(".arrowRight").hide();
+                                                    $(".page8").show();
+                                                    $(".activity9").transition({
+                                                        opacity : 1
+                                                    },'800','linear',function(){
+                                                        $(".activity10").transition({
+                                                            opacity : 1
+                                                        },'800','linear',function(){
+                                                            $(".activity11").transition({
+                                                                opacity : 1
+                                                            },'800','linear',function(){
+                                                                $(".activity12").transition({
+                                                                    opacity : 1
+                                                                },'800','linear',function(){
+                                                                    $(".activity13").transition({
+                                                                        opacity : 1
+                                                                    },'800','linear',function(){
+                                                                        $(".activity14").transition({
+                                                                            opacity : 1
+                                                                        },'800','linear',function(){
+                                                                            $(".activity15").transition({
+                                                                                opacity : 1
+                                                                            },'800','linear',function(){
+                                                                                $(".activity16").transition({
+                                                                                    opacity : 1
+                                                                                },'800','linear',function(){
+                                                                                    $(".arrowRight").show();
+                                                                                    var page8 = $(".page8");
+                                                                                    var mx = '';
+                                                                                    page8.bind("touchstart",function(){
+                                                                                        event.preventDefault();
+                                                                                        var touch1 = event.touches[0];
+                                                                                        startX = touch1.pageX;
+                                                                                    });
+                                                                                    page8.bind("touchmove",function(){
+                                                                                        event.preventDefault();
+                                                                                        var touch1 = event.touches[0];
+                                                                                        moveX = touch1.pageX;
+                                                                                        mx = moveX-startX;
+                                                                                        page8.css({"left":mx+"px"});
+                                                                                    });
+                                                                                    page8.bind("touchend",function(){
+                                                                                        event.preventDefault();
+                                                                                        mx = startX - moveX;
+                                                                                        if(mx>150){
+                                                                                            page8.hide();
+                                                                                            $(".arrowRight").hide();
+                                                                                            $(".page9").show();
+                                                                                            $(".activity17").transition({
+                                                                                                opacity : 1
+                                                                                            },'800','linear',function(){
+                                                                                                $(".activity18").transition({
+                                                                                                    opacity : 1
+                                                                                                },'800','linear',function(){
+                                                                                                    $(".activity19").transition({
+                                                                                                        opacity : 1
+                                                                                                    },'800','linear',function(){
+                                                                                                        $(".activity20").transition({
+                                                                                                            opacity : 1
+                                                                                                        },'800','linear',function(){
+                                                                                                            $(".activity21").transition({
+                                                                                                                opacity : 1
+                                                                                                            },'800','linear',function(){
+                                                                                                                $(".activity22").transition({
+                                                                                                                    opacity : 1
+                                                                                                                },'800','linear',function(){
+                                                                                                                    $(".activity23").transition({
+                                                                                                                        opacity : 1
+                                                                                                                    },'800','linear',function(){
+                                                                                                                        $(".arrowRight").show();
+                                                                                                                        var page9 = $(".page9");
+                                                                                                                        var mx = '';
+                                                                                                                        page9.bind("touchstart",function(){
+                                                                                                                            event.preventDefault();
+                                                                                                                            var touch1 = event.touches[0];
+                                                                                                                            startX = touch1.pageX;
+                                                                                                                        });
+                                                                                                                        page9.bind("touchmove",function(){
+                                                                                                                            event.preventDefault();
+                                                                                                                            var touch1 = event.touches[0];
+                                                                                                                            moveX = touch1.pageX;
+                                                                                                                            mx = moveX-startX;
+                                                                                                                            page9.css({"left":mx+"px"});
+                                                                                                                        });
+                                                                                                                        page9.bind("touchend",function(){
+                                                                                                                            event.preventDefault();
+                                                                                                                            mx = startX - moveX;
+                                                                                                                            if(mx>150){
+                                                                                                                                $(".page9").hide();
+                                                                                                                                $(".page10").show();
+                                                                                                                                $(".liwu").transition({
+                                                                                                                                    bottom : '16%'
+                                                                                                                                },'2000','linear',function(){
+                                                                                                                                    $(".jiang").transition({
+                                                                                                                                        opacity : 1
+                                                                                                                                    },'800','linear',function(){
+                                                                                                                                        $(".arrowRight").show();
+                                                                                                                                        var page10 = $(".page10");
+                                                                                                                                        var mx = '';
+                                                                                                                                        page10.bind("touchstart",function(){
+                                                                                                                                            event.preventDefault();
+                                                                                                                                            var touch1 = event.touches[0];
+                                                                                                                                            startX = touch1.pageX;
+                                                                                                                                        });
+                                                                                                                                        page10.bind("touchmove",function(){
+                                                                                                                                            event.preventDefault();
+                                                                                                                                            var touch1 = event.touches[0];
+                                                                                                                                            moveX = touch1.pageX;
+                                                                                                                                            mx = moveX-startX;
+                                                                                                                                            page10.css({"left":mx+"px"});
+                                                                                                                                        });
+                                                                                                                                        page10.bind("touchend",function(){
+                                                                                                                                            event.preventDefault();
+                                                                                                                                            mx = startX - moveX;
+                                                                                                                                            if(mx>150){
+                                                                                                                                                $(".page4").show();
+                                                                                                                                            }else{
+                                                                                                                                                page10.animate({"left":"0"},200);
+                                                                                                                                            }
+                                                                                                                                        });
+                                                                                                                                    });
+                                                                                                                                });
+                                                                                                                            }else{
+                                                                                                                                page9.animate({"left":"0"},200);
+                                                                                                                            }
+                                                                                                                        });
+                                                                                                                    });
+                                                                                                                });
+                                                                                                            });
+                                                                                                        });
+
+                                                                                                    });
+
+                                                                                                });
+                                                                                            });
+                                                                                        }else{
+                                                                                            page7.animate({"left":"0"},200);
+                                                                                        }
+                                                                                    });
+                                                                                });
+                                                                            });
+                                                                        });
+                                                                    });
+                                                                });
+                                                            });
+                                                        });
+                                                    });
+                                                }else{
+                                                    page7.animate({"left":"0"},200);
+                                                }
+                                            });
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
             //$(".page3").show();
         }else{
             page3.animate({"left":"0"},200);

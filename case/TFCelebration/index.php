@@ -91,6 +91,112 @@
             <div class="arrowRight"></div>
         </div>
     </div>
+    <div class="page7">
+        <div class="arrowRight" style="display:none;"></div>
+        <div class="activity1 activity">
+            <div class="activity_time">17:00-18:08</div>
+            <div class="activity_name">员工签到/入场</div>
+        </div>
+        <div class="activity2 activity">
+            <div class="activity_time">18:08-18:12</div>
+            <div class="activity_name">开场视频</div>
+        </div>
+        <div class="activity3 activity">
+            <div class="activity_time">18:12-18:15</div>
+            <div class="activity_name">开场曲</div>
+        </div>
+        <div class="activity4 activity">
+            <div class="activity_time">18:15-18:18</div>
+            <div class="activity_name">开场表演1</div>
+        </div>
+        <div class="activity5 activity">
+            <div class="activity_time">18:18-18:21</div>
+            <div class="activity_name">主持人开场</div>
+        </div>
+        <div class="activity6 activity">
+            <div class="activity_time">18:21-18:25</div>
+            <div class="activity_name">总经理致辞</div>
+        </div>
+        <div class="activity7 activity">
+            <div class="activity_time">18:25-18:30</div>
+            <div class="activity_name">员工节目1</div>
+        </div>
+        <div class="activity8 activity">
+            <div class="activity_time">18:30-18:45</div>
+            <div class="activity_name">用餐</div>
+        </div>
+    </div>
+    <div class="page8">
+        <div class="arrowRight" style="display:none;"></div>
+        <div class="activity9 activity">
+            <div class="activity_time">18:45-18:50</div>
+            <div class="activity_name">抽奖</div>
+        </div>
+        <div class="activity10 activity">
+            <div class="activity_time">18:50-18:55</div>
+            <div class="activity_name">员工节目2</div>
+        </div>
+        <div class="activity11 activity">
+            <div class="activity_time">18:55-19:00</div>
+            <div class="activity_name">主持人节目</div>
+        </div>
+        <div class="activity12 activity">
+            <div class="activity_time">19:00-19:05</div>
+            <div class="activity_name">抽奖</div>
+        </div>
+        <div class="activity13 activity">
+            <div class="activity_time">19:05-19:10</div>
+            <div class="activity_name">员工节目3</div>
+        </div>
+        <div class="activity14 activity">
+            <div class="activity_time">19:10-19:30</div>
+            <div class="activity_name">用餐</div>
+        </div>
+        <div class="activity15 activity">
+            <div class="activity_time">19:30-19:35</div>
+            <div class="activity_name">舞蹈表演</div>
+        </div>
+        <div class="activity16 activity">
+            <div class="activity_time">19:35-19:45</div>
+            <div class="activity_name">乐队表演</div>
+        </div>
+    </div>
+    <div class="page9">
+        <div class="arrowRight" style="display:none;"></div>
+        <div class="activity17 activity">
+            <div class="activity_time">19:45-19:50</div>
+            <div class="activity_name">抽奖</div>
+        </div>
+        <div class="activity18 activity">
+            <div class="activity_time">19:50-19:55</div>
+            <div class="activity_name">员工节目4</div>
+        </div>
+        <div class="activity19 activity">
+            <div class="activity_time">19:55-20:00</div>
+            <div class="activity_name">舞蹈</div>
+        </div>
+        <div class="activity20 activity">
+            <div class="activity_time">20:00-20:05</div>
+            <div class="activity_name">抽奖</div>
+        </div>
+        <div class="activity21 activity">
+            <div class="activity_time">20:05-20:10</div>
+            <div class="activity_name">员工节目5</div>
+        </div>
+        <div class="activity22 activity">
+            <div class="activity_time">20:10-20:25</div>
+            <div class="activity_name">乐队表演</div>
+        </div>
+        <div class="activity23 activity">
+            <div class="activity_time">20:25-20:30</div>
+            <div class="activity_name">结束曲</div>
+        </div>
+    </div>
+    <div class="page10">
+        <div class="arrowRight" style="display:none;"></div>
+        <div class="jiang"></div>
+        <div class="liwu"></div>
+    </div>
     <div class="page4">
         <form id="user" action="up.php" method="post">
             <p><input type="text" placeholder="公司名称" name="companyName"  required/> </p>
@@ -105,7 +211,7 @@
 <script src="js/jquery-2.1.4.js" type="text/javascript"></script>
 <script src="js/jquery.transit.js" type="text/javascript"></script>
 <script src="js/jquery.fragmentFly.js" type="text/javascript"></script>
-<script src="js/jquery_main.js" type="text/javascript"></script>
+<script src="js/main.js" type="text/javascript"></script>
 <script>
     $(function(){
         var sn=location.hash;
@@ -125,9 +231,6 @@
 
             }
         }
-    });
-    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
-        WeixinJSBridge.call('hideOptionMenu');
     });
 </script>
 <script>
@@ -193,6 +296,11 @@
             alert("报名已截止！");
             return false;
         });
+    });
+
+
+    $(function(){
+
     });
 </script>
 </body>
