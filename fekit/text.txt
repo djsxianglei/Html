@@ -1,0 +1,34 @@
+https://github.com/rinh/fekit
+
+按照fekit
+
+安装前提
+nodejs & npm
+https://nodejs.org/en/download/
+安装
+npm install fekit -g
+npm config set user 0
+npm config set unsafe-perm true
+使用
+fekit {命令名} --help
+
+cmd fekit init fekitAvalon(项目名称)
+-----
+prompt: Enter project name:  (fekitAvalon) fekitAvalon
+prompt: Enter project version:  (0.0.0) 0.0.1
+[LOG] 初始化成功.
+-----
+fekit.config
+{
+    "compiler": "modular",
+    "name": "fekitAvalon",
+    "version": "0.0.1",
+    "dependencies": {
+        "avalon":"1.3.x"
+    },
+    "alias": {},
+    "export": []
+}
+
+安装avalon
+fekit install avalon -c

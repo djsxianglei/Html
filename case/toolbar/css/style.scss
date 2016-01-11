@@ -1,25 +1,3 @@
-.toolbar{
-  width:52px;
-  position:fixed;
-  left:50%;
-  margin-left:-26px;
-  bottom:5px;
-}
-.toolbar-item{
-  display: block;
-  width:52px;
-  height:52px;
-  background: url(../images/toolbar.png) no-repeat;
-}
-.toolbar-item-weixin{
-  background-position: 0 -425px;
-}
-.toolbar-item-feedback{
-  background-position: 0 0;
-}
-.toolbar-item-app{
-  background-position: 0 0;
-}
-.toolbar-item-top{
-  background-position: 0 0;
-}
+@import "mixin";
+$toolbar-size:52px;
+@import "toolbar";

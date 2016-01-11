@@ -1,0 +1,27 @@
+ms-controller 可以互相嵌套的作用域
+ms-controller在页面上表现为一个特色的属性，其属性值为viewmode的$id，表示将在此元素或其子孙元素上
+圈定他的作用域范围，但如果这些html存在它没有的属性，它可以向上查找上一级的viewmodel的属性，换言之
+，ms-controller可以互相嵌套的。
+ms-important 不可以互相嵌套的作用域
+与ms-controller差不多，他不向上查找
+
+ms-skip 不应用任何viewmodel属性的作用域
+ms-skip 注明这块区域不应用任何的viewmodel的属性，它里面的任何指令（绑定属性）都会失效
+因为｛｛｝｝也算一种指令，而任何指令在被扫描后都会被移除，如果我们想保留某个区域的｛｛｝｝，
+就需要用到ms-skip.
+数据填充
+插值表达式 {{prop}} {{prop | html}} 定界符及自主配置
+绑定属性 ms-text,ms-html,ms-value
+过滤器
+ 过滤器：
+   html ,
+   uppercase ,
+   lowercase,
+   truncate,
+   camelize,
+   escape,
+   currency,
+   number,
+   date
+ 多过滤器协同工作，
+ 自定义过滤器
