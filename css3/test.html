@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+div
+{
+	width:100px;
+	height:100px;
+	background:red;
+	animation:myfirst 20s;
+	-moz-animation:myfirst 20s; /* Firefox */
+	-webkit-animation:myfirst 20s; /* Safari and Chrome */
+	-o-animation:myfirst 20s; /* Opera */
+	animation-iteration-count:infinite;
+}
+
+@keyframes myfirst
+{
+from {transform: translateX(0%);}
+to {transform: translateX(1920px);}
+}
+
+@-moz-keyframes myfirst /* Firefox */
+{
+from {transform: translateX(0%);}
+to {transform: translateX(1920px);}
+}
+
+@-webkit-keyframes myfirst /* Safari and Chrome */
+{
+from {transform: translateX(0%);}
+to {transform: translateX(1920px);}
+}
+
+@-o-keyframes myfirst /* Opera */
+{
+from {transform: translateX(0%);}
+to {transform: translateX(1920px);}
+}
+</style>
+</head>
+<body>
+
+<div></div>
+
+</body>
+</html>

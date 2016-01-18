@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>双滚动条</title>
+    <style>
+        a {
+            position: fixed;
+            right: 0;
+            top: 0;
+            padding: 5px 10px;
+            background-color: #444;
+            background-color: rgba(0,0,0,.75);
+            color: #fff;
+        }
+        .out {
+            height: 2000px;
+        }
+        .in {
+            height: 400px;
+            margin-top: 200px;
+            background-color: #eee;
+            overflow: auto;
+        }
+        .inner {
+            height: 800px;
+        }
+        img {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+<a href="#hot">[点击我]</a>
+<div class="out">
+    <div id="in" class="in">
+        <div class="inner">
+            <p><img id="hot" src="http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg"></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
