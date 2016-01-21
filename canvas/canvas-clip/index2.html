@@ -14,6 +14,7 @@
         canvas.width = 800;
         canvas.height = 800;
         var context = canvas.getContext('2d');
+        draw(context);
         setInterval(function(){
             draw(context);
             update(canvas.width,canvas.height);
@@ -34,7 +35,7 @@
             cxt.font = "bold 150px Arial";
             cxt.textAlign = "center";
             cxt.textBaseline = "middle";
-            cxt.fillStyle = "#o58";
+            cxt.fillStyle = "#058";
             cxt.fillText("未来人类",canvas.width/2,canvas.height/4);
             cxt.fillText("未来人类",canvas.width/2,canvas.height/2);
             cxt.fillText("未来人类",canvas.width/2,canvas.height*3/4);
