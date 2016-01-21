@@ -40,8 +40,26 @@
             cxt.fillText("未来人类",canvas.width/2,canvas.height*3/4);
             cxt.restore();
         };
-         update(canvasWidth,canvasHeight){
-            function
+        function update(canvasWidth,canvasHeight){
+            searchLight.x += searchLight.vx;
+            searchLight.y += searchLight.vy;
+            if(searchLight.x - searchLight.radius <= 0){
+                searchLight.vx = -searchLight.vx;
+                searchLight.x = searchLight.radius;
+            }
+            if(searchLight.x + searchLight.radius >= canvasWidth){
+                searchLight.vx = -searchLight.vx;
+                searchLight.x = canvasWidth - searchLight.radius;
+            }
+            if(searchLight.y - searchLight.radius <= 0){
+                searchLight.vy = -searchLight.vy;
+                searchLight.y = searchLight.radius;
+            }
+            if(searchLight.y + searchLight.radius >= canvasHeight){
+                searchLight.vy = -searchLight.vy;
+                searchLight.y = canvasHeight - searchLight.radius;
+            }
+
         }
     };
 
