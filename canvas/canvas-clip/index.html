@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+    var canvas = document.getElementById('canvas');
+    canvas.height = 281;
+    canvas.width = 450;
+    var context = canvas.getContext("2d");
+    context.fillStyle = "#000000";
+    context.fillRect(0,0,canvas.width,canvas.height);
+    context.save();
+    context.beginPath();
+    context.arc(100,100,50,0,2*Math.PI);
+    context.closePath();
+    context.fillStyle = "#ffffff";
+    context.fill();
+    context.clip();
+    var img = new Image();
+    img.src = 'img.jpg';
+    img.onload = function(){
+        context.drawImage( img , 0 , 0 );
+    };
+    context.restore();
+    setInterval(function(){
+        context.clearRect(0,0,canvas.width,canvas.height);
+        context.fillStyle = "#000000";
+        context.fillRect(0,0,canvas.width,canvas.height);
+        context.save();
+        context.beginPath();
+        context.arc(canvas.width*Math.random(),canvas.height*Math.random(),50,0,2*Math.PI);
+        context.closePath();
+        context.fillStyle = "#ffffff";
+        context.fill();
+        context.clip();
+        var img = new Image();
+        img.src = 'img.jpg';
+        img.onload = function(){
+            context.drawImage( img , 0 , 0 );
+        };
+       /* context.clip();
+        context.restore();
+        context.drawImage( img , 0 , 0 );*/
+        context.restore();
+    },500);
+</script>
+</body>
+</html>

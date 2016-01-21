@@ -4,3 +4,6 @@ context.drawImage(image,dx,dy,dw,dh)
 
 
 context.drawImage(image,sx,sy,sw,sh,dx,dy,dw,dh);
+
+
+explorercanvas ie对canvas的兼容

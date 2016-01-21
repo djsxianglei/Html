@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<canvas id="canvas" style="border:1px solid #aaa;display:block;margin:50px auto;"></canvas>
+
+<script>
+    var searchLight = {x:400,y:400,radius:150,vx:Math.random()*5 + 10,vy:Math.random()*5+10};
+    window.onload = function(){
+        var canvas = document.getElementById('canvas');
+        canvas.width = 800;
+        canvas.height = 800;
+        var context = canvas.getContext('2d');
+        setInterval(function(){
+            draw(context);
+            update(canvas.width,canvas.height);
+        },40);
+
+        function draw(cxt){
+            var canvas = cxt.canvas;
+            cxt.clearRect(0,0,canvas.width,canvas.height);
+            cxt.save();
+            cxt.beginPath();
+            cxt.fillStyle = "black";
+            cxt.fillRect(0,0,canvas.width,canvas.height);
+            cxt.beginPath();
+            cxt.arc(searchLight.x,searchLight.y,searchLight.radius,0,Math.PI*2);
+            cxt.fillStyle = "#fff";
+            cxt.fill();
+            cxt.clip();
+            cxt.font = "bold 150px Arial";
+            cxt.textAlign = "center";
+            cxt.textBaseline = "middle";
+            cxt.fillStyle = "#o58";
+            cxt.fillText("未来人类",canvas.width/2,canvas.height/4);
+            cxt.fillText("未来人类",canvas.width/2,canvas.height/2);
+            cxt.fillText("未来人类",canvas.width/2,canvas.height*3/4);
+            cxt.restore();
+        };
+         update(canvasWidth,canvasHeight){
+            function
+        }
+    };
+
+
+</script>
+
+</body>
+</html>

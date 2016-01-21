@@ -1,0 +1,75 @@
+　clip属性说明：
+　　检索或设置对象的可视区域。可视区域外的部分是 透明 的。
+　　此属性定义了绝对(absolute)定位对象可视区域的尺寸。必须将 position 属性的值设为 absolute ，此属性方可使用。
+
+　　clip属性基础语法：
+clip : auto 　 rect ( number number number number )
+取值：
+auto :　 默认值。对象无剪切
+rect ( number number number number ) :　 依据上-右-下-左的顺序提供自对象左上角为(0,0)坐标计算的四个偏移数值，其中任一数值都可用 auto 替换，即此边不剪切
+
+　　注意事项:
+　　一、clip属性必须和定位属性postion一起使用才能生效。
+二、clip裁切的计算坐标都是以左上角即（0,0）点开始计算，这点不像padding和margin，它们两个的右边距和下边距是从最右边和最下边开始计算的。
+
+例如
+rect(top right bottom left)
+rect(30px 200px 200px 20px)
+表示的含义就是：
+最终剪裁的矩形的上边距离原始元素的上边缘30像素；
+剪裁矩形的右边缘距离原元素左边缘的距离是200像素；
+剪裁矩形的下边缘距离原元素顶部的距离为200像素；
+剪裁矩形的左边缘距离原元素左边缘的距离时20像素。
+
+
+
+
+clip:rect矩形剪裁的一些应用介绍
+1隐藏页面元素 可用性隐藏
+.hidden{
+    position:absolute;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+clip: rect(1px 1px 1px 1px); /*left = right, bottom = top*/
+或
+clip: rect(10px 10px 10px 100px); /*left > right*/
+或
+clip: rect(100px 10px 10px 10px); /*bottom < top*/
+
+2. img标签下的CSS Sprite定位
+
+为了节约图片资源，我们经常会把小图片整合到一张图片上，称为图片合并技术，国外称为CSS Sprite，含“精灵”之意。
+然后利用元素区域外background内容不可见的特性配合background-position定位实现图片的精确显示。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
