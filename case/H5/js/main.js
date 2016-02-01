@@ -89,6 +89,8 @@ window.onload=function(){
             }).then(function(){
                 $(".wx_input_bar").hide();
                 $(".wx_keyboard").show();
+                return chat.wx_keyboard();
+            }).then(function(){
                 return chat.typed_word($(".kb_text_1"),"真的假的？");
             }).then(function(){
                 $(".btn_send").show();
@@ -96,11 +98,12 @@ window.onload=function(){
             $(".btn_send").click(function(){
                 var btn_sends = $("input[name='btn_sends']").val();
                 if(btn_sends == 1){
-                    $(".wx_box").scrollTop(480);
+                    console.log($(".wh_msg_3").position().top);
+                    $(".wx_box").scrollTop($(".wh_msg_3").position().top + 116);
                     chat.wx_msg($(".user_msg_1")).then(function(){
                         return chat.wx_msg($(".wh_msg_4"));
                     }).then(function(){
-                        $(".wx_box").scrollTop(580);
+                        $(".wx_box").scrollTop($(".wh_msg_4").position().top + 116);
                         return chat.wx_msg($(".wh_msg_5"));
                     }).then(function(){
                         $(".kb_text_1").html("");
@@ -109,7 +112,7 @@ window.onload=function(){
                         $("input[name='btn_sends']").val("2");
                     });
                 }else if(btn_sends == 2){
-                    $(".wx_box").scrollTop(820);
+                    $(".wx_keyboard").hide();
                     $(".kb_text_1").html("");
                     chat.wx_msg($(".user_msg_2")).then(function(){
                         return chat.wx_msg($(".wh_msg_6"));
@@ -367,6 +370,26 @@ function weiChat(){
         });
         return dfd;
     }
+    function keyboard(){
+        var dfd = $.Deferred();
+        //654 515
+        var proportion = 654/515;
+        var instanceY = document.body.clientWidth/proportion;
+        $(".wx_keyboard").css({
+            width:document.body.clientWidth,
+            height:instanceY,
+            bottom:'-'+instanceY
+        });
+        var input_keyboard = $(".wx_keyboard");
+        input_keyboard.transition({
+            transform: 'translateY(-'+instanceY+'px)'
+        },'400','linear',function(){
+            setTimeout(function(){
+                dfd.resolve();
+            },1000);
+        });
+        return dfd;
+    }
     /*文字出现*/
     function msg(obj){
         var dfd = $.Deferred();
@@ -401,6 +424,9 @@ function weiChat(){
     return  {
         wx_input_bar : function(){
             return inputBar();
+        },
+        wx_keyboard : function(){
+          return keyboard();
         },
         wx_msg : function(obj){
             return msg.apply(null,arguments);

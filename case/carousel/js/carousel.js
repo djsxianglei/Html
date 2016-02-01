@@ -65,7 +65,9 @@
             var zIndexArr = [];
             if(dir === 'left'){
                 //左旋转
+				console.log(this.posterItems);
                 this.posterItems.each(function(){
+					console.log($(this));
                    var  self = $(this),
                         prev = self.prev().get(0)?self.prev():_this.posterLastItem,
                         width = prev.width(),
