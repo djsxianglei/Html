@@ -9,3 +9,46 @@ https://flowplayer.org
 http://myyoudao.com/
 
 https://flowplayer.org/docs/setup.html
+
+
+
+player启动时加载页面
+<div class="flowplayer is-splash"
+     style="background-color:#777; background-image:url(/path/to/splash.jpg);">
+   <video>
+      <source type="video/webm" src="//mydomain.com/video.webm">
+      <source type="video/mp4"  src="//mydomain.com/video.mp4">
+   </video>
+</div>
+
+
+
+JavaScript schema:
+var conf = {
+    // player level
+    clip: {
+        // clip level
+        sources: [
+            // source level
+            ...
+        ]
+    }
+}
+
+HTML schema:
+<div id="playerContainer" data-[option]="value" ...> <!-- player level -->
+   <video>                                           <!-- clip level   -->
+      <source ...>                                   <!-- source level -->
+      ...
+   </video>
+</div>
+
+
+//自动播放
+<div class="flowplayer">
+        <video autoplay>
+            <source type="video/webm" src="video.webm">
+            <source type="video/mp4" src="video.mp4">
+            <!--<source type="video/flash" src="flv-v.flv">-->
+        </video>
+    </div>

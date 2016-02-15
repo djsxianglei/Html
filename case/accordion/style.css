@@ -1,0 +1,69 @@
+/*定义折叠框外框样式*/
+.accordion{
+    background: #EEEEEE;
+    border:1px solid #999999;
+    margin: 2em;
+}
+/*定义折叠框标题样式*/
+.accordion h2{
+    margin: 0px;
+    padding:12px 0px;
+    background: #CCCCCC;
+}
+/*定义折叠框内容样式*/
+.accordion .section{
+    border-bottom: 1px solid #CCCCCC;
+    background: #ffffff;
+}
+/*定义折叠框选项标题栏样式*/
+.accordion h3{
+    margin:0px;
+    padding:0px;
+    background: #eeeeee;
+    padding:3px 1em;
+}
+/*定义折叠框选项标题栏超链接样式*/
+.accordion h3 a{
+    font-weight: normal;
+    text-decoration: none;
+}
+/*当获得目标焦点时，粗体显示选项标题文字*/
+.accordion :target h3 a{
+    font-weight: bold;
+}
+/*选项栏标题对应的选项子框样式*/
+.accordion h3 + div{
+    height: 0px;
+    padding:0 1em;
+    overflow: hidden;
+    -webkit-transition: height 0.3s ease-in;
+    -moz-transition: height 0.3s ease-in;
+    -ms-transition: height 0.3s ease-in;
+    -o-transition: height 0.3s ease-in;
+    transition: height 0.3s ease-in;
+}
+.accordion h3 + div img{
+    margin: 4px;
+}
+/*当获得目标焦点时，子选项内容框样式*/
+.accordion :target h3 + div{
+    height: 350px;
+    overflow: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

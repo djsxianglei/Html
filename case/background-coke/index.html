@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">
+    <title>易拉罐立体视图效果 background-image background-attachment background-position</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="coke_box">
+        <div class="coke_box_in">
+            <div id="appendHTML">
+                <script type="text/javascript">
+                    var oAppend = document.getElementById('appendHTML');
+                    var appendHtml = '';
+                    for(var i=1;i<=55;i++){
+                        appendHtml += '<p id="x' + i + '"></p>';
+                    }
+                    oAppend.innerHTML = appendHtml;
+                </script>
+            </div>
+            <img src="coke_can.png" alt="pure css coke can">
+        </div>
+    </div>
+</body>
+</html>
