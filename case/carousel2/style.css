@@ -1,0 +1,39 @@
+.carousel{
+    position: absolute;
+    width: 391px;
+    height: 220px;
+    overflow: hidden;
+}
+.carousel ul {
+    list-style-type: none;
+}
+.carousel ul li{
+    height:100%;
+    position:relative;
+    float:left;
+    overflow:hidden;
+}
+.tab{
+    width:auto;
+    height:8px;
+    overflow:hidden;
+    position:absolute;
+    bottom:10px;
+    left:50%;
+    z-index:1;
+    margin-left:-68px;
+}
+.tab span{
+    opacity:0.8;
+    display:block;
+    width:64px;
+    height:8px;
+    overflow:hidden;
+    background-color:#00474d;
+    float:left;
+    margin-left:3px;
+}
+.tab span.show{
+    opacity:1;
+    background-color:#009eb9;
+}
