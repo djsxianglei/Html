@@ -1,3 +1,8 @@
+/*
+body{
+    margin:0px;
+    padding:0px;
+}
 .carousel{
     position: absolute;
     width: 391px;
@@ -6,14 +11,22 @@
 }
 .carousel ul {
     list-style-type: none;
+    margin:0px;
+    padding:0px;
+    width:391px;
+    height:220px;
 }
 .carousel ul li{
     height:100%;
-    position:relative;
-    float:left;
-    overflow:hidden;
+    position:absolute;
+    margin:0px;
+    padding:0px;
 }
-.tab{
+.carousel ul li a img{
+    margin:0px;
+    padding:0px;
+}
+.carousel-tab{
     width:auto;
     height:8px;
     overflow:hidden;
@@ -21,19 +34,15 @@
     bottom:10px;
     left:50%;
     z-index:1;
-    margin-left:-68px;
 }
-.tab span{
+.carousel-tab span{
     opacity:0.8;
     display:block;
-    width:64px;
-    height:8px;
-    overflow:hidden;
     background-color:#00474d;
     float:left;
     margin-left:3px;
 }
-.tab span.show{
+.carousel-tab span.show{
     opacity:1;
     background-color:#009eb9;
-}
+}*/

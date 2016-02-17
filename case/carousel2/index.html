@@ -4,27 +4,114 @@
     <meta charset="UTF-8">
     <title></title>
     <link href="style.css" rel="stylesheet">
+    <script src="jquery.js" type="text/javascript"></script>
 </head>
-<body>
-<div class="carousel">
-    <div>
-        <ul>
-            <li>
-                <a href="###"><img src="1.jpg"></a>
+<body style="margin:0px;padding:0px;">
+<!--轮播开始-->
+<div class="carousel" style="position: relative;width: 391px;height: 220px;overflow: hidden;">
+    <div class="carousel-list" style="width: 391px;height: 220px;">
+        <ul style="list-style-type: none;margin:0px;padding:0px;width:391px;height:220px;">
+            <li style="opacity:1;width:391px;height: 220px;position:absolute;">
+                <a href="###"><img src="http://img10.360buyimg.com/cms/jfs/t2287/249/1579308432/13204/6a00661b/56c40507N15847caf.jpg"></a>
             </li>
-            <li>
-                <a href="###"><img src="2.jpg"></a>
+            <li style="opacity:0;width:391px;height: 220px;position:absolute;">
+                <a href="###"><img src="http://img11.360buyimg.com/cms/jfs/t2371/95/2162708055/16117/3697c07c/56c4050bN7538506d.jpg"></a>
             </li>
-            <li>
-                <a href="###"><img src="3.jpg"></a>
+            <li style="opacity:0;width:391px;height: 220px;position:absolute;">
+                <a href="###"><img src="http://img10.360buyimg.com/cms/jfs/t2230/348/2150107879/17851/c4884ce5/56c4050fNf031d743.jpg"></a>
             </li>
         </ul>
     </div>
-    <div class="tab">
-        <span class="show"></span>
-        <span></span>
-        <span></span>
-    </div>
 </div>
+
+<script>
+    var list = $(".carousel-list ul li");
+    var list_len = list.length;
+    var carousel_width = 391;
+    var carousel_height = 220;
+    var idx = 0;
+    var cidX = 0;
+    var span_height = 9;
+    var span_width = 40;
+    var time = setInterval(function(){
+        goIndex("+1");
+    },3000);
+    /*初始化span按钮*/
+    var html = '<div style="position:absolute;" class="carousel-tab">';
+
+    for(var i = 0;i<list_len;i++){
+        if(i == 0){
+            html += '<span class="show" style="width:'+span_width+'px;height:'+span_height+'px;display:block;background-color:#009eb9;float:left;margin-left:3px;"></span>';
+        }else{
+            html += '<span style="width:'+span_width+'px;height:'+span_height+'px;display:block;background-color:#00474d;float:left;margin-left:3px;"></span>';
+        }
+    }
+    html += "</div>";
+    $(".carousel").append(html);
+    var carousel_tab_w = $(".carousel-tab").width()/2;
+    $(".carousel-tab").css({
+        'margin-left':'-'+ carousel_tab_w + 'px',
+        height : span_height,
+        position:"absolute",
+        bottom:'10px',
+        left:"50%"
+
+    });
+    var tab = $(".carousel-tab span");
+    function goIndex(n){
+        if(typeof n == 'string'){
+            cidX = idx + 1*n;
+        }
+        if(cidX < 0){
+            cidX = list_len - 1;
+            list[0] && (list[0].style.transition = 'opacity 1s ease-out');
+            list[0] && (list[0].style.opacity = 0);
+            tab[0] && (tab[0].style.background = '#00474d');
+            list[0] && (list[0].style.filter = 'alpha(opacity:0)');
+        }else if(cidX > (list_len-1)){
+            cidX = 0;
+            list[list_len-1] && (list[list_len-1].style.transition = 'opacity 1s ease-out');
+            list[list_len-1] && (list[list_len-1].style.opacity = 0);
+            tab[list_len-1] && (tab[list_len-1].style.background = '#00474d');
+            list[list_len-1] && (list[list_len-1].style.filter = 'alpha(opacity:0)');
+        }
+        idx = cidX;
+        list[cidX] && (list[cidX].style.transition = 'opacity 1s ease-out');
+        list[cidX] && (list[cidX].style.opacity = 1);
+        tab[cidX] && (tab[cidX].style.background = '#009eb9');
+        list[cidX] && (list[cidX].style.filter = 'alpha(opacity:100)');
+        list[cidX+1] && (list[cidX+1].style.transition = 'opacity 1s ease-out');
+        list[cidX+1] && (list[cidX+1].style.opacity = 0);
+        tab[cidX+1] && (tab[cidX+1].style.background = '#00474d');
+        list[cidX+1] && (list[cidX+1].style.filter = 'alpha(opacity:0)');
+        list[cidX-1] && (list[cidX-1].style.transition = 'opacity 1s ease-out');
+        list[cidX-1] && (list[cidX-1].style.opacity = 0);
+        tab[cidX-1] && (tab[cidX-1].style.background = '#00474d');
+        list[cidX-1] && (list[cidX-1].style.filter = 'alpha(opacity:0)');
+
+
+    }
+    $(tab).each(function(index,e){
+        $(this).hover(function(){
+            window.clearInterval(time);
+            list[idx] && (list[idx].style.transition = 'opacity 1s ease-out');
+            list[idx] && (list[idx].style.opacity = 0);
+            tab[idx] && (tab[idx].style.background = '#00474d');
+            list[idx] && (list[idx].style.filter = 'alpha(opacity:0)');
+            list[index] && (list[index].style.transition = 'opacity 1s ease-out');
+            list[index] && (list[index].style.opacity = 1);
+            tab[index] && (tab[index].style.background = '#009eb9');
+            list[index] && (list[index].style.filter = 'alpha(opacity:100)');
+            idx = index;
+            console.log(idx);
+            console.log(index);
+        },function(){
+            time = setInterval(function(){
+                goIndex("+1");
+            },3000);
+        });
+    });
+</script>
+<!--轮播结束-->
 </body>
 </html>
