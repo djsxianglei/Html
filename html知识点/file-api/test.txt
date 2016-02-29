@@ -1,0 +1,11 @@
+html5 file api协议族
+文件系统和目录读取
+写入文件 filewriter
+读取文件 filereader
+页面选择文件处理 fileapi
+
+www.w3.org/TR/2012/WD-file-system-api-20120417/
+http://w3c.github.io/FileAPI/
+
+file插件
+https://github.com/apache/cordova-plugin-file

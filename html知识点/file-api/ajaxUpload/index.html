@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>html5上传文件</title>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <style type="text/css">
+        body{
+			margin: 0px; 
+			background:#f2f2f0;
+		}
+		.pic-file{
+			width:50%;
+		}
+        .file{
+			position: absolute;
+			border: 1px solid #ccc;
+			width: 32%;
+			font-size: 24px;
+			height: 32px;
+			line-height: 32px;
+		}
+        .filebtn{
+			display: block;
+			position: relative;
+			height: 40px;
+			color: #FFFFFF;
+			background: #989898;
+			font-size: 24px;
+			line-height: 40px;
+			text-align: center;
+			cursor: pointer; 
+		}
+        .showimg{
+			margin:10px auto 10px auto;
+			text-align:center;
+			width:50%;
+		}
+    </style>
+</head>
+<body>
+    <div class="pic-file">
+		<input type="file" class="file" id="news-img">
+		<label class="filebtn" for="news-img" title="JPG,GIF,PNG">请选择图片</label>
+	</div>
+    <div class="showimg" id="showimg"></div>
+<script>
+    $(function(){
+       document.getElementById('img').onchange = function(){
+           var img = event.target.files[0];
+           //判断是否图片
+           if(!img){
+                return;
+            }
+           if (!(img.type.indexOf('image') == 0 && img.type && /\.(?:jpg|png|gif)$/.test(img.name))){
+               alert('图片只能是jpg,gif,png');
+               return;
+           }
+           var reader = new FileReader();
+           reader.readAsDataURL(img);
+           reader.onload = function(e){
+              //ajax 上传图片
+               $.post("upload.php",{img: e.target.result},function(re){
+                   console.log(re);
+                   if(re.img!=''){
+                       alert("上传成功");
+                       $('#showimg').html('<img src="' + re.img + '">');
+                   }else{
+                       alert("上传失败！");
+                   }
+               },'json');
+           };
+       };
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

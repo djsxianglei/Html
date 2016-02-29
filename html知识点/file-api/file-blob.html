@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--
+    file继承bolb
+        bolb 文件大小 size
+             文件类型 type
+
+    -->
+    <!--
+      5个对象：readAsBinaryString:
+              readAsText:
+              readAsDataURL:
+              readArrrayBuffer:
+              abort:
+       6个事件：
+                onabort:
+                onerror
+                onloadstart:
+                onprogress
+                onload
+                onloadend
+    -->
+</head>
+<body>
+    <input type="file" id="file" multiple>
+    <input type="button" onclick="readAsDataURL()" value="读取图片"/>
+    <input type="button" onclick="readAsText()" value="读取文本文件"/>
+    <input type="button" onclick="readAsBinaryString()" value="读取二进制数据"/><br/>
+    <div id="result"></div>
+
+    <script>
+        function readAsDataURL(){
+            var file= document.getElementById('file').files[0];
+            var reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function(e){
+                console.log(e.target.result);
+                console.log(this.result);
+                /*
+                * e.target.result 与 this.result 得到的结果一样 都是图片的数据流
+                * */
+                document.getElementById('result').innerHTML = '<img src="'+ e.target.result+'" alt="">';
+            }
+        }
+        /*
+        * 读取文本信息
+        * */
+        function readAsText(){
+            var file=document.getElementById('file').files[0];
+            var reader = new FileReader();
+            reader.readAsText(file);
+            reader.onload = function(e){
+                document.getElementById('result').innerHTML = e.target.result;
+            }
+        }
+        /*
+         * 读取文本信息
+         * */
+        function readAsBinaryString(){
+            var file=document.getElementById('file').files[0];
+            var reader = new FileReader();
+            reader.readAsBinaryString(file);
+            reader.onload = function(e){
+                document.getElementById('result').innerHTML = e.target.result;
+            }
+        }
+
+    </script>
+
+</body>
+</html>
