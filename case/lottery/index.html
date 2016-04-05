@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width,minimum-scale=1.0,maximum-scale=1.0, user-scalable=no" />
+    <link href="main.css" rel="stylesheet" />
+    <script src="main.js" type="text/javascript"></script>
+</head>
+<body>
+    <div id="con" class="wrap">
+        <canvas id="myCanvas" width="300" height="200"></canvas>
+    </div>
+<script>
+    var myCanvas = document.getElementById('myCanvas');
+    myCanvas.height = 200;
+    myCanvas.width = 300;
+    var gray = myCanvas.getContext('2d');
+    gray.beginPath();
+    gray.fillStyle = "#999";
+    gray.fillRect(0,0,myCanvas.width,myCanvas.height);
+    gray.closePath();
+    gray.globalCompositeOperation = "destination-out";
+    myCanvas.addEventListener('touchmove',function(e){
+        e.preventDefault();
+        gray.beginPath();
+        gray.fillStyle = "#f00";
+        var x = e.targetTouches[0].clientX + document.body.scrollLeft - myCanvas .offsetLeft;
+        var y = e.targetTouches[0].clientY + document.body.scrollTop - myCanvas.offsetTop;
+        gray.arc(x,y,20,0,Math.PI*2);
+        gray.fill();
+        gray.closePath();
+    });
+    myCanvas.addEventListener('touchend',function(e){
+        e.preventDefault();
+        var num = 0;
+        var datas = gray.getImageData(0,0,myCanvas.width,myCanvas.height);
+        for(var i = 0;i < datas.data.length;i++){
+            if(datas.data[i] == 0){
+                num++;
+            }
+        }
+        if(num >= datas.data.length*0.7){
+            gray.fillRect(0,0,myCanvas.width,myCanvas.height);
+        }
+    });
+
+
+    myCanvas.addEventListener('touchstart',function(e){
+        myCanvas.addEventListener('touchmove',function(e){
+            gray.beginPath();
+            gray.fillStyle = '#f00';
+            gray.arc(e.targetTouches[0].clientX, e.targetTouches[0].clientY,20,0,Math.PI*2);
+            gray.fill();
+            gray.closePath();
+        });
+    });
+</script>
+</body>
+</html>
