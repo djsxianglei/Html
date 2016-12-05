@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <link href="css/style.css" rel="stylesheet" />
+    <title>Title</title>
+</head>
+<body>
+    <div class="container">
+        <div class="slide-image">
+            <ul>
+                <li><img src="images/image1.jpg"/> </li>
+                <li><img src="images/image2.jpg"/> </li>
+                <li><img src="images/image3.jpg"/> </li>
+                <li><img src="images/image4.jpg"/> </li>
+                <li><img src="images/image5.jpg"/> </li>
+                <li><img src="images/image6.jpg"/> </li>
+                <li><img src="images/image7.jpg"/> </li>
+                <li><img src="images/image8.jpg"/> </li>
+                <li><img src="images/image9.jpg"/> </li>
+                <li><img src="images/image10.jpg"/> </li>
+                <li><img src="images/image11.jpg"/> </li>
+                <li><img src="images/image12.jpg"/> </li>
+                <li><img src="images/image13.jpg"/> </li>
+                <li><img src="images/image14.jpg"/> </li>
+                <li><img src="images/image15.jpg"/> </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="js/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <script>
+        /*rem 自动调整*/
+        ;(function(win) {
+            var doc = win.document;
+            var docEl = doc.documentElement;
+            var tid;
+            function refreshRem() {
+                var width = docEl.getBoundingClientRect().width;
+                if (width > 640) {
+                    width = 640;
+                }
+                var rem =  ( width * 5 )/32;
+                docEl.style.fontSize = rem + 'px';
+            }
+            win.addEventListener('resize', function() {
+                clearTimeout(tid);
+                tid = setTimeout(refreshRem, 300);
+            }, false);
+            win.addEventListener('pageshow', function(e) {
+                if (e.persisted) {
+                    clearTimeout(tid);
+                    tid = setTimeout(refreshRem, 300);
+                }
+            }, false);
+            refreshRem();
+        })(window);
+    </script>
+    <script>
+        var touchEvents = {
+            touchstart: "touchstart",
+            touchmove: "touchmove",
+            touchend: "touchend",
+
+            /**
+             * @desc:判断是否pc设备，若是pc，需要更改touch事件为鼠标事件，否则默认触摸事件
+             */
+            initTouchEvents: function () {
+                if (isPC()) {
+                    this.touchstart = "mousedown";
+                    this.touchmove = "mousemove";
+                    this.touchend = "mouseup";
+                }
+            }
+        };
+
+        $(function(){
+            /*获取数据来源*/
+            var list = $('.slide-image ul li');
+            var width = $('.slide-image ul li').width();
+            var len = $('.slide-image ul li').length;
+            var startX;//初始位置
+            var startTime;//开始时间
+            var offsetX;//偏移量
+            var idx = 0;
+            $.each(list,function(i,item){
+                $(this).css({
+                    'transform':'translate3d('+(width*i)+'px,0px,0px)'
+                });
+            });
+
+            list.bind('touchstart',function(e){
+                //兼容chrome android，阻止浏览器默认行为
+                e.preventDefault();
+                var touchX = e.originalEvent.targetTouches;
+                startX = touchX[0].pageX;
+                startTime = (new Date()).getTime();
+            });
+            list.bind('touchmove',function(e){
+                e.preventDefault();
+                var touchX = e.originalEvent.targetTouches;
+                offsetX = touchX[0].pageX - startX;
+                //起始索引
+                var i = idx - 1;
+                //结束索引
+                var m = i + 3;
+                $.each(list,function(i,item){
+                    if(i < m || i >= 0){
+                        $(this).css({
+                            'transition':'0s ease-out',
+                            'transform':'translate3d('+(width*(i-idx) + offsetX)+'px,0px,0px)'
+                        });
+                    }
+                });
+            });
+            list.bind('touchend',function(e){
+                //兼容chrome android，阻止浏览器默认行为
+                e.preventDefault();
+                //边界就翻页值
+                var boundary = width/6;
+                var endTime = (new Date()).getTime();
+                if((endTime - startTime) > 300){
+                    if(offsetX > boundary){
+                        goIndex("-1");
+                    }else if(offsetX < 0 && offsetX < -boundary){
+                        goIndex("+1");
+                    }else{
+                        goIndex("0");
+                    }
+                }else{
+                    if(offsetX > 50){
+                        goIndex("-1");
+                    }else if(offsetX < 0 && offsetX < -50){
+                        goIndex("+1");
+                    }else{
+                        self.goIndex("0");
+                    }
+                }
+            });
+            function goIndex(n){
+                var cidX = '';
+                if(typeof n == 'string'){
+                    cidX = idx + 1*n;
+                }
+                if(cidX < 0){
+                    cidX = 0;
+                }else if(cidX > (len-1)){
+                    cidX = len - 1;
+                }
+                idx = cidX;
+
+                list[cidX] && (list[cidX].style.webkittransiton='-webkit-transform 0s ease-out');
+                list[cidX] && (list[cidX].style.webkitTransform = 'translate3d(0,0,0)');
+                list[cidX-1] && (list[cidX-1].style.webkittransiton='-webkit-transform 0s ease-out');
+                list[cidX-1] && (list[cidX-1].style.webkitTransform = 'translate3d(-'+width+'px,0,0)');
+                list[cidX+1] && (list[cidX+1].style.webkittransiton='-webkit-transform 0s ease-out');
+                list[cidX+1] && (list[cidX+1].style.webkitTransform = 'translate3d('+width+'px,0,0)');
+            }
+
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>苏太情太湖香米-正宗苏州地产大米</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Cache-Control" content="no-transform ">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no, email=no" />
+<link href="css/index.css" rel="stylesheet"/>
+<link href="css/main.css" rel="stylesheet"/>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/icheck.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('.adress input').each(function(){
+            var self = $(this),
+                    label = self.next(),
+                    label_text = label.text();
+
+            label.remove();
+            self.iCheck({
+                checkboxClass: 'icheckbox_sm-blue',
+                radioClass: 'radio_sm-blue',
+                insert: label_text
+            });
+        });
+    });
+</script>
+</head>
+<body>	
+<!--导航-->
+     <!--头部-->
+	<header class="header">
+        <a href="#"><img src="images/rice_one.jpg"></a>
+	</header>
+	<div class="content_t_top">苏太情太湖香米</div>
+    <div class="content_t_line"></div>
+    <form class="formlist">
+        <ul class="write">
+            <li class="adress">
+                <div class="buy_left">配送</div>
+                <div class="buy_right">
+                    <div class="adress_z">
+                        <input type="radio" id="adress-jzh" name="radio-adress" value="0" checked>
+                        <label for="adress-jzh">江浙沪</label>
+                    </div>
+                    <div class="adress_z adress_j">
+                        <input type="radio" id="adress-fjzh" name="radio-adress" value="1" >
+                        <label for="adress-fjzh">非江浙沪</label><span class="red">+28元</span>
+                    </div>
+                </div>
+            </li>
+            <li class="addplus">
+                <div class="buy_left">数量</div>
+                <div class="buy_right">
+                    <div class="add">
+                        <a href="javascript:;" class="buy_main_less" id="less">-</a>
+                        <input name="num" type="tel" value="1" class="buy_main_number" readonly="readonly" id="quantity">
+                        <a href="javascript:;" class="buy_main_plus" id="plus" style="background-color: #7dad1d;">+</a> 
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="content_t_line"></div>
+        <ul class="write write_t">
+            <li class="icons">
+                <i>姓名 :</i>
+                <input class="ui-input-b" type="text" id="name" name="name" value="" placeholder="请输入您的姓名">
+            </li>
+            <li class="icons">
+                <i>电话 :</i>
+				<input class="ui-input-b" type="text" id="phone" name="mobile" maxlength="11" value="" placeholder="请输入您的电话">
+            </li>
+            <li class="icons">
+                <i>详细地址 :</i>
+                <input id="address" class="ui-input-b" type="text" name="address" value="" placeholder="输入家庭住址" style="padding-left:84px;">
+            </li>
+        </ul>
+        <a class="buybutton" id="buysubmit">立即购买</a>
+    </form>
+
+    <!--加减-->
+    <script type="text/javascript">
+
+        var lessBtn = $("#less");
+        var plusBtn = $("#plus");
+        var subBtn = $("#buysubmit");
+        var phone = $("#phone");
+        
+        
+        //如果只剩一个
+        var thisNumber = parseInt('10');
+        if(thisNumber > 1){
+            plusBtn.click(function(){
+                plusValue();
+            });
+            lessBtn.click(function(){
+                lessValue();
+            });
+        }else{
+            plusBtn.css("background-color","#00a0e9");
+            //plusBtn.style.backgroundColor = "#00a0e9";
+        }
+
+        subBtn.click(function(){
+            if($("#name").val()==""){
+                alert("请输入姓名");
+                return false;
+            }
+            if($("#phone").val()==""){
+                alert("请输入手机号码");
+                return false;
+            }
+            if(!testNumber(phone.val())){
+                alert('手机号码错误');
+                return false;
+            }
+            if($("#address").val()==""){
+                alert("请输入家庭住址");
+                return false;
+            }
+            document.getElementById("buyform").submit();
+        });
+
+
+        //增加按钮
+        function plusValue(){
+            var buy = document.getElementById("quantity"),
+                buyValue = parseInt(buy.getAttribute("value")) + 1,
+                maxNumber = thisNumber;
+
+            if(buyValue <= maxNumber-1){
+                buy.setAttribute("value", buyValue);
+                lessBtn.css("background-color","#7dad1d");
+                changeValue(buyValue);
+            }else{
+                buy.setAttribute("value", maxNumber);
+                plusBtn.css("background-color","#d6d6d6");
+                changeValue(maxNumber);
+            }
+        }
+
+        //减少按钮
+        function lessValue(){
+            var buy = document.getElementById("quantity"),
+                buyValue = parseInt(buy.getAttribute("value")) - 1;
+            if(buyValue <= 1){
+                lessBtn.css("background-color","#d6d6d6");
+                if(thisNumber > 1){plusBtn.css("background-color","#7dad1d");}
+                buy.setAttribute("value", 1);
+                changeValue(1);
+            }else{
+                buy.setAttribute("value", buyValue);
+                plusBtn.css("background-color","#7dad1d");
+                //plusBtn.style.backgroundColor = "#ff6c00";
+                changeValue(buyValue);
+            }
+        }
+
+        //计算后的总价
+        function changeValue(value){
+            unit = $("#unitprice");
+            unithtml = unit.html() * 1000;
+            total = $("#totalprice");
+            nopoint = unithtml * value / 1000;
+            result = twoPoint(nopoint);
+            total.html(result);
+        }
+
+        //两位小数
+        function twoPoint(value){
+            var floatNumber = parseFloat(value);
+            if (isNaN(floatNumber)){
+                return false;
+            }
+            var roundNumber = Math.round(floatNumber * 100) / 100,
+                stringNumber = roundNumber.toString(),
+                findPoint = stringNumber.indexOf('.');
+            if(findPoint < 0){
+                findPoint = stringNumber.length;
+                stringNumber += '.';
+            }
+            while (stringNumber.length <= findPoint + 2){
+                stringNumber += '0';
+            }
+
+            return stringNumber;
+        }
+
+
+        //电话号码验证
+        function testNumber(value){
+            var a = /^(13|14|15|17|18)[0-9]{9}$/;
+            return a.test(value);
+        }
+
+
+   
+    </script>
+</body>
+</html>

@@ -170,6 +170,7 @@
                 self.offsetX = 0;
                 //事件对象
                 var target = evt.target;
+				console.log(target);
                 while(target.nodeName != 'LI' && target.nodeName != 'BODY'){
                     target = target.parentNode;
                 };
