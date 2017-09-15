@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <title>mouse和touch</title>
+</head>
+<body>
+    <div class="box" id="box" style="width:200px;height:600px;background:red;overflow-y: auto">
+        <p style="height:30px;">我是个读书人1</p>
+        <p style="height:30px;">我是个读书人2</p>
+        <p style="height:30px;">我是个读书人3</p>
+        <p style="height:30px;">我是个读书人4</p>
+        <p style="height:30px;">我是个读书人5</p>
+        <p style="height:30px;">我是个读书人6</p>
+        <p style="height:30px;">我是个读书人7</p>
+        <p style="height:30px;">我是个读书人8</p>
+        <p style="height:30px;">我是个读书人9</p>
+        <p style="height:30px;">我是个读书人10</p>
+        <p style="height:30px;">我是个读书人11</p>
+        <p style="height:30px;">我是个读书人12</p>
+        <p style="height:30px;">我是个读书人13</p>
+        <p style="height:30px;">我是个读书人14</p>
+        <p style="height:30px;">我是个读书人15</p>
+        <p style="height:30px;">我是个读书人16</p>
+        <p style="height:30px;">我是个读书人17</p>
+        <p style="height:30px;">我是个读书人18</p>
+        <p style="height:30px;">我是个读书人19</p>
+        <p style="height:30px;">我是个读书人20</p>
+    </div>
+    <script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="modernizr-touch.js"></script>
+    <script type="text/javascript" src="pointer.js"></script>
+    <script>
+        var mouseEvents = setMouseEvents();
+        var dom = {
+            'offset':0
+        };
+        $("#box").bind(mouseEvents.down,function(e){
+            //鼠标按下捕获当前位置
+            dom.pageX = e.pageX;
+            dom.pageY = e.pageY;
+            dom.scrollPosition = $(this).scrollTop();
+            //鼠标按下绑定鼠标移动事件
+            $(this).bind(mouseEvents.move,function(e){
+                e.preventDefault();
+                console.log($('#box').scrollTop());
+                dom.offset = dom.scrollPosition + e.pageY - dom.pageY;
+                $(this).animate({
+                    'scrollTop':dom.offset + 'px'
+                },0);
+            });
+        });
+        $("#box").bind(mouseEvents.up,function(e){
+            e.preventDefault();
+            $(this).unbind(mouseEvents.move);
+            $(this).scrollTop(dom.offset);
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
